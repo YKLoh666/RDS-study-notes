@@ -1,4 +1,33 @@
-# Data Engineering
+# Data Engineering Mid-Term Note
+
+- [Data Engineering Mid-Term Note](#data-engineering-mid-term-note)
+  - [Chapter 1: Introduction to Data Engineering](#chapter-1-introduction-to-data-engineering)
+    - [1.1 Data Engineering Overview](#11-data-engineering-overview)
+      - [Roles of Data Engineering in Organizations](#roles-of-data-engineering-in-organizations)
+      - [Concepts](#concepts)
+      - [Lifecycle](#lifecycle)
+      - [ETL vs ELT](#etl-vs-elt)
+      - [Technologies](#technologies)
+      - [Challenges](#challenges)
+    - [1.2 Data Engineering in Organizations](#12-data-engineering-in-organizations)
+      - [Data Engineering in Analytics and ML](#data-engineering-in-analytics-and-ml)
+      - [Data Engineering for Decision-Making](#data-engineering-for-decision-making)
+      - [Impacts of Data-Driven Products and Services](#impacts-of-data-driven-products-and-services)
+      - [Roles of Human in Dataset Creation](#roles-of-human-in-dataset-creation)
+    - [1.3 Ethics](#13-ethics)
+      - [Importance of Ethics](#importance-of-ethics)
+      - [Core Ethical Values](#core-ethical-values)
+    - [1.4 Professionalism](#14-professionalism)
+      - [Importance of Professionalism](#importance-of-professionalism)
+      - [Elements of Professionalism](#elements-of-professionalism)
+  - [Chapter 2: Hadoop Ecosystem](#chapter-2-hadoop-ecosystem)
+    - [2.1 Motivation](#21-motivation)
+    - [2.3 HDFS](#23-hdfs)
+      - [HDFS File Blocks](#hdfs-file-blocks)
+      - [Write Operation](#write-operation)
+      - [Read Operation](#read-operation)
+      - [Advantages](#advantages)
+      - [HDFS CLI Commands](#hdfs-cli-commands)
 
 ## Chapter 1: Introduction to Data Engineering
 
@@ -211,15 +240,3 @@
 - `mkdir <flag> <directory>`: Create a new directory in HDFS
 - `mv <flag> <source> <destination>`: Move or rename files within HDFS
 - `rm <flag> <file>`: Remove files or directories from HDFS (`-R` for recursive)
-
-## Chapter 3: Apache Spark
-
-### 3.1 Introduction to Apache Spark
-
-- Distributed computing framework for big data processing and analytics (Use multiple computers to process large datasets in parallel)
-- Core Features:
-  - **In-Memory Computing**: Store intermediate data in memory for faster processing
-  - **Lazy Evaluation**: Delay execution until necessary, optimizing the execution plan
-  - **Resilient Distributed Datasets (RDDs)**: Fault tolerant collections of objects that can be processed in parallel
-  - **Multiple Language Support**: APIs for Java, Scala, Python and R
-- 

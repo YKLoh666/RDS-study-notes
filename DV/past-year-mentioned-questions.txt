@@ -1,0 +1,30 @@
+Chapter 1
+- Type of Variables & Appropriate Scales
+
+Chapter 2
+- Principles of visualisation
+
+Chapter 3
+- Bar Charts and good practices, purpose and interpretation
+
+Chapter 4
+- Compare pie chart, stacked bar chart, and grouped bar chart in use case
+- Interpret scatter plot, in terms of correlation, variability, and outliers
+
+Chapter 6
+- Choropleth purpose and interpretation
+
+Chapter 7 & Chapter 8
+- Find problems from the graph, explain consequences and suggest solutions.
+- Scatter plot overlapping points, solution: jittering and transparency
+- Color use
+  - 1. Distinguish Categories
+  - 2. Encode data values
+    - Type of color palettes: sequential and diverging
+  - 3. Highlight or Accentuate
+- Color use pitfalls
+  - 1. Using too many colors
+  - 2. Rainbow scale for encoding data values
+  - 3. Ignoring Color Vision Deficiency
+    - Protanopia (Red-Weak), Deuteranopia (Green-Weak), Tritanopia (Blue-Weak)
+- Redundant encoding: using more than one visual channel to encode the same data value, e.g., using both color and shape to distinguish categories. This can improve accessibility and comprehension, especially for individuals with color vision deficiencies.

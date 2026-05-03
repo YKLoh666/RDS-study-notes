@@ -1,5 +1,10 @@
 # Data Engineering
 
+## Study Notes
+
+- [Midterm Notes](mid-term-note.md)
+- [Final Notes](final-note.md)
+
 ## Past Years
 
 - [2025-OCT](PYQ/2025-OCT%20(202505).md)

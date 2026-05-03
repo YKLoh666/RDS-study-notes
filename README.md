@@ -1,4 +1,4 @@
 # RDS Study Notes
 
-- [BMDS2113 Database Systems](DV)
+- [BMDS2113 Data Visualisation](DV)
 - [BMDS2013 Data Engineering](DE)

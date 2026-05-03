@@ -1,9 +1,5 @@
 # Data Visualisation
 
-- [Data Visualisation](#data-visualisation)
-  - [Notes](#notes)
-  - [Past Years](#past-years)
-
 ## Notes
 
 - [Full Notes + Practice](note.md)

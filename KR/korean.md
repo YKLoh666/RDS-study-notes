@@ -303,6 +303,7 @@
 | Wash face          | 세수해요        | sesuhaeyo               | 洗手해요        |
 | Shopping           | 쇼핑해요        | syopinghaeyo            | -               |
 | Call               | 전화해요        | jeonhwahaeyo            | 電話해요        |
+| Walk               | 산책해요        | sanchaekhaeyo           | 散策해요        |
 
 ## Grammar
 

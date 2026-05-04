@@ -13,6 +13,7 @@
     - [Numbers](#numbers)
     - [Counters and Units](#counters-and-units)
     - [Questions and Useful Words](#questions-and-useful-words)
+    - [Verbs](#verbs)
   - [Grammar](#grammar)
     - [Subject Markers](#subject-markers)
     - [Object Markers](#object-markers)
@@ -49,7 +50,7 @@
 | Siblings               | 형제     | hyeongje     | 兄弟   |
 | Father                 | 아버지   | abeoji       | -      |
 | Mother                 | 어머니   | eomeoni      | -      |
-| Grandfather            | 할아버지 | halabeoji    | -      |
+| Grandfather            | 할아버지 | hal-abeoji   | -      |
 | Grandmother            | 할머니   | halmeoni     | -      |
 | Older brother (male)   | 형       | hyeong       | 兄     |
 | Older sister (male)    | 누나     | nuna         | -      |
@@ -77,7 +78,7 @@
 | Thailand  | 태국       | taeguk       | 泰國 |
 | Malaysia  | 말레이시아 | malleisia    | -    |
 | France    | 프랑스     | peurangseu   | -    |
-| Germany   | 독일       | dogil        | 德國 |
+| Germany   | 독일       | dog-il       | 德國 |
 | Italy     | 이탈리아   | itallia      | -    |
 | Spain     | 스페인     | seupein      | -    |
 | Canada    | 캐나다     | kaenada      | -    |
@@ -89,7 +90,7 @@
 
 | English        | 한글   | Romanization   | 한자   |
 | -------------- | ------ | -------------- | ------ |
-| Occupation     | 직업   | jigeop         | 職業   |
+| Occupation     | 직업   | jig-eop        | 職業   |
 | Teacher        | 선생님 | seonsaengnim   | 先生님 |
 | Chef           | 요리사 | yorisa         | 料理師 |
 | Doctor         | 의사   | uisa           | 醫師   |
@@ -157,6 +158,8 @@
 | Taekwon-do        | 태권도   | taegwondo    | 跆拳道   |
 | Tennis Court      | 테니스장 | teniseujang  | Tennis場 |
 | Floor             | 층       | cheung       | -        |
+| Park              | 공원     | gongwon      | 公園     |
+| Library           | 도서관   | doseogwan    | 圖書館   |
 
 ### Time and Days
 
@@ -246,8 +249,8 @@
 | What (Informal)            | 뭐                     | mwo                            | -    |
 | What (Formal)              | 무엇                   | mueot                          | -    |
 | How many                   | 몇                     | myeot                          | -    |
-| Have / Is there?           | 있어요                 | isseoyo                        | -    |
-| Don't have / Isn't there?  | 없어요                 | eopseoyo                       | -    |
+| Have / Is there?           | 있어요                 | iss-eoyo                       | -    |
+| Don't have / Isn't there?  | 없어요                 | eops-eoyo                      | -    |
 | How much is it?            | 얼마예요?              | eolmayeyo                      | -    |
 | What is your phone number? | 전화번호가 몇반이에요? | jeonhwabeonhoga myeot banieyo? | -    |
 | Promise                    | 약속                   | yaksok                         | 約束 |
@@ -257,6 +260,49 @@
 | Very                       | 아주                   | aju                            | -    |
 | Too/also                   | 도                     | do                             | -    |
 | Me too                     | 저도                   | jeodo                          | -    |
+| Because                    | 왜냐하면               | waenyahamyeon                  | -    |
+| So                         | 그래서                 | geuraeseo                      | -    |
+| And                        | 그리고                 | geurigo                        | -    |
+| ... and ...                | ... 하고/와/과 ...     | ...hago/wa/gwa ...             | -    |
+| Class/lesson               | 수업                   | sueop                          | 授業 |
+
+### Verbs
+
+| English            | 한글            | Romanization            | 한자            |
+| ------------------ | --------------- | ----------------------- | --------------- |
+| Meet               | 만나요          | mannayo                 | -               |
+| Receive            | 받아요          | bad-ayo                 | -               |
+| Watch              | 봐요            | bwayo                   | -               |
+| Read               | 읽어요          | ilg-eoyo                | -               |
+| Dance              | 춰요            | chwoyo                  | -               |
+| Eat                | 먹어요          | meog-eoyo               | -               |
+| Drink              | 마셔요          | masyeoyo                | -               |
+| Teach              | 가르쳐요        | gareuchyeoyo            | -               |
+| Borrow             | 빌려요          | bilryeoyo               | -               |
+| Listen             | 들어요          | deul-eoyo               | -               |
+| Study              | 공부해요        | gongbuhaeyo             | 工夫해요        |
+| Trip               | 여행해요        | yeohaenghaeyo           | 旅行해요        |
+| Exercise           | 운동해요        | undonghaeyo             | 運動해요        |
+| Swim               | 수영해요        | suyeonghaeyo            | 水泳해요        |
+| Play               | 쳐요            | chyeoyo                 | -               |
+| Chat               | 이야기해요      | iyagihaeyo              | -               |
+| Work               | 일해요          | ilhaeyo                 | -               |
+| Buy                | 사요            | sayo                    | -               |
+| Go                 | 가요            | gayo                    | -               |
+| Come               | 와요            | wayo                    | -               |
+| Have Breakfast (1) | 아침을 먹어요   | achimeul meog-eoyo      | -               |
+| Have Breakfast (2) | 아침식사를 해요 | achimsigsareul haeyo    | 아침食事를 해요 |
+| Have Lunch (1)     | 점심을 먹어요   | jeomsimeul meog-eoyo    | 點心을 먹어요   |
+| Have Lunch (2)     | 점심식사를 해요 | jeomsigsareul haeyo     | 點心食事를 해요 |
+| Have Dinner (1)    | 저녁을 먹어요   | jeonyeogeul meog-eoyo   | -               |
+| Have Dinner (2)    | 저녁식사를 해요 | jeonyeoksigsareul haeyo | 저녁食事를 해요 |
+| Use computer       | 컴퓨터를 해요   | keompyuteoreul haeyo    | -               |
+| Like               | 좋아해요        | joah-aeyo               | -               |
+| Dislike            | 싫어해요        | silh-eohaeyo            | -               |
+| Learn              | 배워요          | baewoyo                 | -               |
+| Wash face          | 세수해요        | sesuhaeyo               | 洗手해요        |
+| Shopping           | 쇼핑해요        | syopinghaeyo            | -               |
+| Call               | 전화해요        | jeonhwahaeyo            | 電話해요        |
 
 ## Grammar
 

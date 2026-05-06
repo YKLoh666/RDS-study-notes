@@ -2,7 +2,7 @@ Chapter 1
 - Type of Variables & Appropriate Scales
 
 Chapter 2
-- Principles of visualisation
+- Design for decision makers
 
 Chapter 3
 - Bar Charts and good practices, purpose and interpretation

@@ -103,7 +103,7 @@
 | Company        | 회사   | hoesa          | 會社   |
 | School         | 학교   | hakgyo         | 學校   |
 | Classroom      | 교실   | gyosil         | 教室   |
-| Bookstore      | 서점   | seojeom         | 書店   |
+| Bookstore      | 서점   | seojeom        | 書店   |
 | Library        | 도서관 | doseogwan      | 圖書館 |
 | Hospital       | 병원   | byeongwon      | 病院   |
 | Embassy        | 대사관 | daesagwan      | 大使館 |
@@ -245,7 +245,8 @@
 | Which                      | 어느                   | eoneu                          | -    |
 | How                        | 어떻게                 | eotteohge                      | -    |
 | Who                        | 누구                   | nugu                           | -    |
-| What kind of               | 무슨                   | museun                         | -    |
+| What kind of (1)           | 무슨                   | museun                         | -    |
+| What kind of (2)           | 어떤                   | eotteon                        | -    |
 | What (Informal)            | 뭐                     | mwo                            | -    |
 | What (Formal)              | 무엇                   | mueot                          | -    |
 | How many                   | 몇                     | myeot                          | -    |

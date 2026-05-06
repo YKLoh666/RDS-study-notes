@@ -817,4 +817,3 @@ Question 27:
 | Problem                                       | Impact                                                                                             | Fix                                                                                                                                                 |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Hard to compare slices across different years | Slices is not intuitive to compare size with small differences, each slices has different baseline | Use grouped bar chart, which allows direct comparison of the size of each category across different years, with a shared baseline for each category |
-

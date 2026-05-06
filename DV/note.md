@@ -513,12 +513,12 @@ Trend is often more important than actual values; individual data points can be 
 
 #### Pitfalls to Avoid
 
-- **Too many colours (5–7 max):** Clutters, overwhelms, distracts. Group categories (e.g., states into regions) rather than colouring each individually.
+- **Too many colours:** Clutters, overwhelms, distracts. Group categories (e.g., states into regions) rather than colouring each individually.
 - **Rainbow scale for quantitative data:** Not monotonic; brightness fluctuations and non‑linear hue perception mislead. Map intensity to value. Do a grayscale test.
 - **Ignoring colour vision deficiency (CVD):**
   - Avoid red‑green schemes (most common CVD: deuteranopia, protanopia).
   - Use colourblind‑friendly palettes (Okabe‑Ito, ColorBrewer).
-  - **Redundant encoding:** Use shape or pattern in addition to colour.
+  - [Redundant encoding](#74-redundant-encoding): Use shape or pattern in addition to colour.
   - For scatter plots with two overlapping groups: distinct colours + different shapes.
   - For line plots: order end‑labels by final value; use line types (solid, dashed) as redundant encoding.
 

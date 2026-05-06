@@ -103,7 +103,7 @@
 | Company        | 회사   | hoesa          | 會社   |
 | School         | 학교   | hakgyo         | 學校   |
 | Classroom      | 교실   | gyosil         | 教室   |
-| Bookstore      | 서점   | seojum         | 書店   |
+| Bookstore      | 서점   | seojeom         | 書店   |
 | Library        | 도서관 | doseogwan      | 圖書館 |
 | Hospital       | 병원   | byeongwon      | 病院   |
 | Embassy        | 대사관 | daesagwan      | 大使館 |

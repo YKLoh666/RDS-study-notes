@@ -299,16 +299,16 @@
 - Workflow:
   - **Split**: Split input data into smaller chunks for parallel processing
     
-> [!NOTE]
-> Split is inside the Record Reader component of the Map Task, happens after reading the input data.
+  > [!NOTE]
+  > Split is inside the Record Reader component of the Map Task, happens after reading the input data.
     
   - **Map**: Mapper processes its own chunk of data and produces intermediate key-value pairs
   - **Combine**: *Optional* step to perform local reduction on mapper output to reduce data transfer during shuffle phase
   - **Partition**: Intermediate key-value pairs sharded, ensuring that all values with the same key will end up on the same reducer, also ensures load balancing across reducers, written to local disk of mapper nodes awaiting reducer nodes to pull them.
     - Partition Function determines the partition ID for each intermediate key-value pair, important for load balancing
       
-> [!NOTE]
-> Often combined with the shuffle phase when answering questions
+  > [!NOTE]
+  > Often combined with the shuffle phase when answering questions
     
   - **Shuffle**: Output of mappers is pulled by machines running reducers, network I/O intensive
   - **Sort**: Intermediate key-value pairs sorted by key for efficient merging (When keys are sorted, reducer can easily merge values with the same key by iterating through the sorted list)

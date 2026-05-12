@@ -149,13 +149,13 @@
   public int sum(int[] arr) {
       int total = 0; // 1 assignation
       for (int i = 0; i < arr.length; i++) {
-          total += arr[i]; // n accesses by index, n arithmetic operations
+          total += arr[i]; // n accesses by index, n arithmetic operations, n assignation
       }
       return total; // 1 return
   }
   ```
 
-  - Total operations: 1 (assignation) + n (accesses) + n (arithmetic operations) + 1 (return) = 2n + 2
+  - Total operations: 1 (assignation) + n (accesses) + n (arithmetic operations) + n (assignation) + 1 (return) = 3n + 2
   - Discarding constants and lower order terms, the time complexity is O(n).
 
 - Common time complexities:

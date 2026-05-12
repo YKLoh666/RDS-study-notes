@@ -1,5 +1,84 @@
 # ICS Notes
 
+- [ICS Notes](#ics-notes)
+  - [Chapter 1: Introduction to Computer Security](#chapter-1-introduction-to-computer-security)
+    - [Security Problems](#security-problems)
+    - [Principles of Computer Security](#principles-of-computer-security)
+    - [Vulnerabilities](#vulnerabilities)
+    - [Threats vs Attacks](#threats-vs-attacks)
+    - [Threat Actors](#threat-actors)
+    - [Attack Categories](#attack-categories)
+    - [Attack Types](#attack-types)
+    - [Attack Vectors](#attack-vectors)
+    - [New Targets of Attacks](#new-targets-of-attacks)
+    - [New Strategies](#new-strategies)
+  - [Chapter 2: Malicious Software](#chapter-2-malicious-software)
+    - [Classification of Malware](#classification-of-malware)
+      - [Snoop](#snoop)
+      - [Launch](#launch)
+      - [Imprison](#imprison)
+      - [Deceive](#deceive)
+      - [Evade](#evade)
+    - [Countermeasures](#countermeasures)
+  - [Chapter 3: Elementary Cryptography](#chapter-3-elementary-cryptography)
+    - [Effective Cryptosystem](#effective-cryptosystem)
+    - [Simple Ciphers](#simple-ciphers)
+    - [Use Cases](#use-cases)
+    - [Data States](#data-states)
+    - [Cryptographic Algorithms](#cryptographic-algorithms)
+      - [Symmetric Encryption](#symmetric-encryption)
+      - [Asymmetric Encryption](#asymmetric-encryption)
+      - [Hashing](#hashing)
+      - [Authentication](#authentication)
+    - [Cryptographic Attacks](#cryptographic-attacks)
+      - [Algorithm Attacks](#algorithm-attacks)
+      - [Collision Attacks](#collision-attacks)
+    - [Quantum Cryptographic Defenses](#quantum-cryptographic-defenses)
+    - [Applications of Cryptography](#applications-of-cryptography)
+  - [Chapter 4: Authentication \& Access Control](#chapter-4-authentication--access-control)
+    - [Means of Authentication](#means-of-authentication)
+    - [Knowledge-Based - Passwords](#knowledge-based---passwords)
+      - [Challenges](#challenges)
+      - [Attacks](#attacks)
+    - [Token-Based Authentication](#token-based-authentication)
+    - [Biometric Authentication](#biometric-authentication)
+    - [Authentication Tips](#authentication-tips)
+    - [Access Control](#access-control)
+    - [Access Control Process](#access-control-process)
+    - [Access Control Policies](#access-control-policies)
+  - [Chapter 5: Network Security](#chapter-5-network-security)
+    - [Attacks on Networks](#attacks-on-networks)
+    - [Network Security Components](#network-security-components)
+    - [Types of Cloud](#types-of-cloud)
+    - [Cloud Security Challenges](#cloud-security-challenges)
+    - [Secure Cloud Computing](#secure-cloud-computing)
+    - [Virtualisation Challenges](#virtualisation-challenges)
+    - [Wireless Network Attacks](#wireless-network-attacks)
+    - [Wireless Security Protocols](#wireless-security-protocols)
+    - [Wireless Security Solutions](#wireless-security-solutions)
+  - [Chapter 6: Physical Security](#chapter-6-physical-security)
+    - [Categories of Physical Assets to Protect](#categories-of-physical-assets-to-protect)
+    - [Physical Security Threats](#physical-security-threats)
+    - [Security Control Measures](#security-control-measures)
+      - [External Perimeter Defenses](#external-perimeter-defenses)
+      - [Sensors](#sensors)
+      - [Internal Controls](#internal-controls)
+      - [Environmental Threat Controls](#environmental-threat-controls)
+      - [Best Practices](#best-practices)
+  - [Chapter 7: Risk Management and Data Privacy](#chapter-7-risk-management-and-data-privacy)
+    - [Common Information Security Policies](#common-information-security-policies)
+    - [Risk Types](#risk-types)
+    - [Risk Analysis](#risk-analysis)
+    - [Risk Management Strategies](#risk-management-strategies)
+    - [Risk Management Control Types](#risk-management-control-types)
+    - [Data Types](#data-types)
+    - [Data Protection](#data-protection)
+    - [Data Destruction](#data-destruction)
+  - [Chapter 8: Incident Preparation, Response, and Investigation](#chapter-8-incident-preparation-response-and-investigation)
+    - [Incident Preparation](#incident-preparation)
+    - [Incident Response](#incident-response)
+    - [Incident Investigation](#incident-investigation)
+
 ## Chapter 1: Introduction to Computer Security
 
 ### Security Problems
@@ -138,7 +217,7 @@
 ### Effective Cryptosystem
 
 - **Reversible**: Decryption should be possible to unscramble the message
-- **Secrecy depends on key, not algorithm**: Security should rely on the secrecy of the key, not the algorithm (Kerckhoffs's Principle)
+- **Secrecy & Length of Key**: Security should rely on the secrecy and length of the key, not the algorithm (Kerckhoffs's Principle)
 - **Substantial Cryptanalysis**: Should be analysed thoroughly by experts for robustness
 
 ### Simple Ciphers
@@ -291,9 +370,9 @@
   - **Gait Analysis**
   - **Voice Recognition**
 
-### Authentication Services
+### Authentication Tips
 
-| Service                 | Description                                                                                                                                                                        |
+| Tips                    | Description                                                                                                                                                                        |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Protect password digest | Use salts to prevent rainbow table attacks, use key stretching to increase time for brute-force attacks, use lockout policies to prevent password spraying and brute-force attacks |
 | Password Safety         | Use long passwords instead of complex ones, use password vaults to generate and store unique passwords, use password keys (hardware-based devices)                                 |
@@ -324,7 +403,7 @@
 - **Network Packet Sniffer**: Put network adapter card in promiscuous mode to capture all traffic
 - **IP Spoofing & DoS Attack**: Spoof as trusted source to bypass access control, send TCP SYN packets without completing handshake to consume resources
 - **Password Attack**
-- **Distribution of Sensitive Internal Information to External Sources**: E.g. Data Exfiltration by insiders
+- **Data Exfiltration**: Send sensitive data to external location
 - **MITM (Man-in-the-Middle) Attack**: Intercept and modify communication between two parties, e.g. ARP Spoofing, DNS Spoofing, DoS, Session Hijacking, Eavesdropping
 
 ### Network Security Components
@@ -479,7 +558,7 @@
 
 - **Network Security Policy**: Network access control, architecture, security measures
 - **Workstation Policy**: Antivirus, lock screen, password, updates
-- **Acceptable Use Policy (AUP)**: Define acceptable and unacceptable use of resources (e.g. Internet, Email, Social Networks, File Transfer) for confidential information
+- **Acceptable Use Policy (AUP)**: Define acceptable and unacceptable use of channels (e.g. Internet, Email, Social Networks, File Transfer) for confidential information
 - **Clean Desk Policy**: Free of sensitive notes or documents to prevent visual theft
 - **Remote Access Policy**: Define requirements for remote access, e.g. VPN, devices
 - **Password Policy**: Strong password creation, protection, and expiration

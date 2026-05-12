@@ -169,6 +169,18 @@
 
 ## Chapter 4 & 5: Array-Based Lists and Linked Lists
 
+### Array Variations
+
+- Linear array with fixed front
+  - When remove from front (like stack or queue), shift the other element to front to maintain front at index 0.
+  - Slow, need to relocate all other elements
+- Linear array with dynamic front
+  - When remove from front, shift the front index forward.
+  - Fast, but lesser space can be used as deletion happens.
+- Circular array
+  - Dynamic front, when the space after front used up, loop to the index 0 and continue to use.
+  - Fast and space optimised, but index interation need to update from `++i` to `++i % containerSize`
+
 ### add(e)
 
 - Array: O(1)

@@ -562,7 +562,7 @@ public String toString() {
   }
   ```
 
-- **Advantages**: Simpler to understand and write
+- **Advantages**: Simpler to understand than iterative implementation, simpler to write by exploiting the repetitive structure which can avoid complex case analyses & nested loops
 - **Disadvantages**: Poor efficiency due to repeated calculations, can lead to stack overflow if the recursion depth is too large, iterative solutions are often more efficient in terms of time and space complexity, but may be more complex to understand and write.
 - **Mutual Recursion**: When two or more methods call each other in a recursive manner. Very hard to understand and debug, should be avoided if possible.
 

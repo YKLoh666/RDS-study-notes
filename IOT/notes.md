@@ -69,7 +69,7 @@ Emotional Benefits (Maslow's Hierarchy of Needs)
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Solution Layer          | The top layer that provides the end-user interface and experience. It includes applications and services that utilize IoT data to deliver value to customers.                                                      |
 | Analysis Platform Layer | Orchestrates based on availability of cloud, fog and network resources. Has direct access to raw data and perform machine learning and data analytics. It also supplies authentication and authorization services. |
-| Core Platform Layer     | Process IoT tasks that reach the cloud. Features include: Messaging Middleware (Device Management), Protocol Gateway, , Data Storage, and Data Aggregation & Filtering.                                            |
+| Core Platform Layer     | Process IoT tasks that reach the cloud. Features include: Messaging Middleware (Device Management), Protocol Gateway, Data Storage, and Data Aggregation & Filtering.                                              |
 | Communication Layer     | Utilises devices for communicating between devices and the cloud. Consists of various communication protocols (e.g., MQTT, CoAP, HTTP) and network technologies (e.g., Wi-Fi, Bluetooth, Zigbee).                  |
 | Device Layer            | The bottom layer that consists of the actual IoT devices and sensors that collect and transmit data. Sensors, actuators, indicators, and embedded systems (controllers) are part of this layer.                    |
 
@@ -154,3 +154,55 @@ void setup() {
 - Key Considerations when writing code:
   - **Non-blocking code**: Avoid long delays or blocking operations in `loop()`. Use timers, interrupts or task scheduling to maintain responsiveness.
   - **Global variables**: Use global variables so both `setup()` and `loop()` can access it.
+
+## Trend, Challenges and Ethical Issues
+
+| Issue                                  | Description                                                                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Ubiquity, omnipresence                 | IoT devices are everywhere at anytime, making it impossible to avoid them, raising concerns about privacy and data security.    |
+| Miniaturisation, invisibility          | Smaller devices can be easily hidden, raising concerns about surveillance and unauthorized data collection.                     |
+| Ambiguity                              | Boundary between natural and artificial beings is blurred, accountability issues arise when devices make autonomous decisions.  |
+| Difficult identification               | Huge number of devices, difficult tracking, prone to security breaches and unauthorized access.                                 |
+| Ultra-connectivity                     | Increased connectivity leads to more attack vectors, data can be intercepted and maliciously used.                              |
+| Autonomous and unpredictable behaviour | Smart devices can make decisions based on human events, may lead to unexpected behaviour and ethical dilemmas.                  |
+| Incorporated intelligence              | Human over reliance on smart devices can lead to loss of critical thinking and problem-solving skills.                          |
+| Difficult control                      | Decentralised nature of IoT makes it difficult to control and monitor, may overlook malicious activities and security breaches. |
+
+## Inter-Intergrated Circuit (I2C)
+
+- SDA(Serial Data Line): Carries data between devices.
+- SCL(Serial Clock Line): Synchronizes data transfer between devices.
+- Supports multiple devices on the same bus, each with a unique address.
+- If connecting multiple displays with the same address, they will conflict due to multiple devices acknowledging and cause data corruption.
+
+## Smart Farming Solution
+
+IPO Model:
+
+- **Input**: Soil moisture sensors, temperature sensors, camera, air humidity sensors, pH sensors
+- **Process**: Raspberry Pi
+- **Output**: Nutrient dispenser, sprinkler system
+
+Use cases for each layer of the IoT stack:
+
+| Layer                   | Use Case                                                                                                                                                                                                             |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Solution Layer          | Mobile app for farmers to monitor soil moisture, temperature, and receive alerts. Remote control of irrigation systems.                                                                                              |
+| Analysis Platform Layer | Data analytics to predict optimal watering schedules based on weather forecasts and historical data. Machine learning for pest detection using camera images.                                                        |
+| Core Platform Layer     | Data storage for sensor readings, device management for connected sensors and actuators, data aggregation to combine sensor data for comprehensive analysis.                                                         |
+| Communication Layer     | Use of MQTT protocol for efficient communication between sensors and cloud. Wi-Fi connectivity for remote access.                                                                                                    |
+| Device Layer            | Soil moisture sensors to measure water content in soil. Temperature sensors to monitor ambient conditions. Camera for pest detection. Air humidity sensors for microclimate monitoring. pH sensors for soil acidity. |
+
+## Humanoid Robots
+
+- **Feasibility Study**
+  - **General market opportunities**: Healthcare (elderly care, rehabilitation), Manufacturing (assembly line, hazardous environments), growing demand as they can perform tasks that are dangerous or require precision, and can operate 24/7 without fatigue.
+  - **Time to market**: Key technologies such as AI, sensors and edge computing are yet to mature, it may impact the development timeline and increase costs.
+  - **Channels to market**: Direct sales to businesses, partnerships with healthcare providers, online platforms for consumer sales.
+- **Usage Viewpoint**
+  - **Stakeholders**: Healthcare providers, manufacturing companies, regulatory bodies
+  - **User Interface**: Button, hand gestures, voice commands, mobile app
+  - **Processes**: VR control, Remote monitoring, Movement
+  - **Rules**: Safety protocols, Ethical guidelines
+  - **Data**: Sensor data (proximity, force, temperature), User input data (commands, feedback), Operational data (battery status, performance metrics)
+  - **Benefits/Goals**: Reduce labour costs, Increase uptime, Enhance precision, Improve safety

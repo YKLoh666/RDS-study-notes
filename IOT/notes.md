@@ -1,5 +1,21 @@
 # Internet of Things
 
+- [Internet of Things](#internet-of-things)
+  - [Core elements of IoT](#core-elements-of-iot)
+  - [Communication Models](#communication-models)
+  - [Resources and Activities](#resources-and-activities)
+  - [Porter's Five Forces](#porters-five-forces)
+  - [Customers' Benefits](#customers-benefits)
+  - [IoT Stacks](#iot-stacks)
+  - [IoT Platform Architecture Components](#iot-platform-architecture-components)
+  - [Ultrasonic Sensor](#ultrasonic-sensor)
+  - [Firebase Realtime Database](#firebase-realtime-database)
+  - [Arduino IDE](#arduino-ide)
+  - [Trend, Challenges and Ethical Issues](#trend-challenges-and-ethical-issues)
+  - [Inter-Intergrated Circuit (I2C)](#inter-intergrated-circuit-i2c)
+  - [Smart Farming Solution](#smart-farming-solution)
+  - [Humanoid Robots](#humanoid-robots)
+
 ## Core elements of IoT
 
 | Element       | Real-World Example                                                             |
@@ -16,6 +32,17 @@
 | Device-to-Gateway (D2G)     | Devices communicate with a central gateway that processes and forwards data.                       |
 | Device-to-Cloud (D2C)       | Devices send data to cloud servers for storage and analysis.                                       |
 | Back-End Data-Sharing (BDS) | Interoperability between different cloud services and platforms for data combination and analysis. |
+
+## Resources and Activities
+
+| Resource/Activity                     | Description                                                                                                                                                   |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Unique Dataset                        | Using IoT to build dataset not available to competitors, such as Google collecting large amounts of data from its users which can be used for AI development. |
+| Analytics                             | Superior algorithms to automate and optimize processes, such as Google algorithm to index World Wide Web.                                                     |
+| Exclusive co-operations and contracts | Possible to strategically lockout competitors by securing exclusive partnerships with key players in the ecosystem.                                           |
+| Talent Access                         | Create demand for talents, since IoT is a multidisciplinary field (e.g., engineering, data science, cybersecurity)                                            |
+| IoT-Device / Product Development      | Mastering new technologies can decrease time to market and increase product differentiation                                                                   |
+| Algorithm Development                 | Innovate and develop algorithms that are ahead of competitors                                                                                                 |
 
 ## Porter's Five Forces
 
@@ -179,7 +206,7 @@ void setup() {
 
 IPO Model:
 
-- **Input**: Soil moisture sensors, temperature sensors, camera, air humidity sensors, pH sensors
+- **Input**: Temperature sensors, camera, air humidity sensors, pH sensors, NPK sensors
 - **Process**: Raspberry Pi
 - **Output**: Nutrient dispenser, sprinkler system
 
@@ -200,9 +227,14 @@ Use cases for each layer of the IoT stack:
   - **Time to market**: Key technologies such as AI, sensors and edge computing are yet to mature, it may impact the development timeline and increase costs.
   - **Channels to market**: Direct sales to businesses, partnerships with healthcare providers, online platforms for consumer sales.
 - **Usage Viewpoint**
-  - **Stakeholders**: Healthcare providers, manufacturing companies, regulatory bodies
+  - **Event**: User commands, sensor inputs, system alerts
+  - **Stakeholders**: Operators, end-users
   - **User Interface**: Button, hand gestures, voice commands, mobile app
   - **Processes**: VR control, Remote monitoring, Movement
   - **Rules**: Safety protocols, Ethical guidelines
   - **Data**: Sensor data (proximity, force, temperature), User input data (commands, feedback), Operational data (battery status, performance metrics)
   - **Benefits/Goals**: Reduce labour costs, Increase uptime, Enhance precision, Improve safety
+- **Platform Architecture Components**
+  - **Processing & Action Management**: Humanoid robots uses AI algorithms to process sensor data and make real-time decisions for movement and task execution, such as balancing and navigation.
+  - **Analytics**: Analyse the performance of the robot, identify areas for improvement and predict maintenance needs based on sensor data and operational metrics.
+- **Issue: Autonomous and unpredictable behaviour**: Humanoid robots processing is almost black box due to the complexity of AI algorithms, it may lead to unexpected behaviour and ethical dilemmas when encountering real world events with undeterministic nature. For example, two humanoid robots may collide with each other when navigating a crowded environment, it may cause safety concerns and ethical dilemmas on how to program the robots to prioritise safety and make ethical decisions in such scenarios.

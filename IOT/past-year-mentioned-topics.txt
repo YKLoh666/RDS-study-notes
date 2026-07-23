@@ -1,0 +1,89 @@
+Chapter 1
+- 3 Elements defining IoT
+  - Identity
+  - Intelligence
+  - Communication
+
+- 4 Communication Models
+  - Device to Device
+  - Device to Cloud
+  - Device to Gateway
+  - Back-end Data Sharing
+
+Chapter 2
+- IoT Technology Infrastructure
+  - Applications
+  - Software backend
+  - Communication
+  - Hardware
+  - Security
+- IoT Platforms Architecture
+  - Connectivity & Normalization
+  - Device Management
+  - Processing & Action Management
+  - Data Visualisation
+  - Analytics
+  - Additional Tools
+  - External Interfaces
+  - Database
+- IoT Stack
+  - Solutions Layer: Topmost layer that leverages fog computing to deliver innovative and intelligent applications and services to end-users. Eg. abstract data models and solution templates.
+  - Analytics Platform Layer: The layer responsible for processing and analyzing the data collected from IoT devices. It includes machine learning algorithms, monitoring and profiling tools, security, and resource provisioning. Eg. forecasting, anomaly detection, and predictive maintenance.
+  - Core Platform Layer: Contains cloud services and resources supporting resource management and processing of IoT tasks. No standardised protocol. Eg. stream processing, data aggregation, protocol translation
+  - Communication Layer: Utilises devices and protocols to enable communication between devices themselves, and between devices and the cloud. 
+  - Device Layer: Bottommost layer, consisting of the physical devices that collect data, perform actions, and interact with the environment. These devices can include sensors, actuators, and controllers.
+- MQTT Architecture
+  - Publisher: A device that sends messages to a topic.
+  - Subscriber: A device that receives messages from a topic.
+  - Broker: A server that manages the distribution of messages between publishers and subscribers. It receives messages from publishers and forwards them to the appropriate subscribers based on the topics they are subscribed to.
+  - Topic: A named channel that publishers send messages to and subscribers receive messages from. Topics are hierarchical and can be structured to allow for efficient message routing.
+
+Chapter 3 + Practical
+- Read and understand the code for arduino ide
+
+Chapter 7
+- Trend, Challenge and Ethical Issues of IoT
+  - Ubiquity, omnipresence (IoT devices are everywhere, in our homes, workplaces, cities, and even on our bodies, privacy issues)
+  - Miniaturization, invisibility (harder to detect, privacy issues)
+  - Ambiguity (border distinction between natural and artificial beings is blurred, ethical issues)
+  - Difficult Identification (harder to identify the source of a problem, security issues)
+  - Ultra-connectivity (more devices interconnected, more data transmitted, security and privacy issues)
+  - Autonomous and unpredictable behaviour (IoT devices make decisions based on real-time data, less deterministic, ethical issues)
+  - Incorporated Intelligence (Human treat IoT devices as extensions of themselves, claiming to be social handicapped if they don't have access to their devices, ethical issues)
+  - Difficult control (decentralized control, hard to manage, security and privacy issues)
+
+Chapter 9
+- List of Customer's Benefits
+  - Functional Product Benefits
+    - Daily Operations (Monitoring, Localization, Control, Safety)
+    - Optimization (Functionality, Convenience, Cost)
+    - Maintenance (Availability, Cost)
+  - Functional Process Benefits
+    - Strategic Information (Choice of machines, Sales optimization)  
+    - Daily Operations (Monitoring, Control, Billing, Documentation, Contract management, Usability)
+    - Optimization (Availability, Quality, Cost, Automation)
+  - Functional Business Benefits
+    - Customers (Retention, Satisfaction, Lead Generation, Offer Optimization, Sales Proposition)
+    - Products (Requirements management)
+    - New markets (Data as a product, IoT as a catalyst)
+    - New business models (Added-value offering, Pay-per-use, contracting)
+  - Emotional Benefits (Maslow's Hierarchy of Needs)
+    - Safety (Security of body, employment, health, property)
+    - Love/Belonging (Friendship, Intimacy, Family)
+    - Esteem (Self-esteem, Confidence, Achievement, Respect)
+    - Self-actualization (Creativity, Morality, Spontaneity, Problem solving, Accceptance of facts)
+
+Chapter 10
+- Feasibility Study
+  - General market opportunities
+  - Revenue potential
+  - Strategic fit with goals
+  - Time and channel to market
+  - Strategic importance
+  - Implementation cost
+  - Potential margin
+  - Regulatory environment
+
+Chapter 11
+- Block Diagram
+- Usage Viewpoint Diagram (UI, Processes, Rules, Data, ...)

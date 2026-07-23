@@ -18,6 +18,7 @@
     - [Concepts of Morphology](#concepts-of-morphology)
   - [Chapter 3: Phonetics and Phonology](#chapter-3-phonetics-and-phonology)
     - [Concept of Phonetics](#concept-of-phonetics)
+    - [Concept of Phonology](#concept-of-phonology)
     - [Articulary Phonetics](#articulary-phonetics)
     - [Acoustic Phonetics](#acoustic-phonetics)
     - [Syllable Structure](#syllable-structure)
@@ -78,14 +79,22 @@
 ### Normalisation
 
 - Process of converting text into a standard format
+- Reduce vocabulary size
 - **Stemming**
-  - Eliminating suffixes, prefixes, infix, circumfix, etc. to get the root word
+  - Eliminating suffixes, prefixes, infix, circumfix, etc. to get the stem of a word
   - Example: "running" → "run", "happily" → "happi"
   - Faster, but may not always produce a valid word
+    > Stem is not necessarily a root word, but a part of a word that can form other words by adding affixes. Root is always a valid word, but stem may not be a valid word.
 - **Lemmatization**
   - Canonical form of a word, considering the context and meaning of the word
   - Example: "running" → "run", "better" → "good"
   - Slower, but always produces a valid word
+- **Case Folding**
+  - Convert all characters to lowercase
+  - Example: "Hello" → "hello"
+- **Unicode Canonicalization**
+  - Convert characters to a standard Unicode representation
+  - Example: "é" → "e"
 
 ### Emoji Handling
 
@@ -134,8 +143,15 @@
 ### Concept of Phonetics
 
 - Study of the physical sounds of human speech, how they are produced, transmitted, and perceived
+- **International Phonetic Alphabet (IPA)**: A standardized system of symbols used to represent the sounds of spoken language
 - **Phonemes**: The smallest units of sound in a language that can distinguish meaning
   - E.g., /p/ and /b/ in "pat" and "bat"
+
+### Concept of Phonology
+
+- Study of the abstract, cognitive aspects of sounds in a language, how they function and interact with each other
+- **Segmental phonology**: Study of individual sounds and their patterns
+- **Suprasegmental phonology**: Study of features that extend over multiple sounds, such as stress, intonation, and rhythm
 
 ### Articulary Phonetics
 

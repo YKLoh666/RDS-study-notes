@@ -216,7 +216,7 @@
   | Labiodental  | Lower lip against upper teeth                 | "f", "v"                     |
   | Alveolar     | Tongue against alveolar ridge                 | "t", "d", "s", "z", "n", "l" |
   | Postalveolar | Tongue just behind alveolar ridge             | "sh", "zh"                   |
-  | Palatal      | Tongue against hard palate                    | "j" in "yes"                 |
+  | Palatal      | Tongue against hard palate                    | /j/ in "yes"                 |
   | Dental       | Tongue against upper teeth                    | "th" in "think", "this"      |
   | Velar        | Back of tongue against soft palate            | "k", "g", "ng"               |
   | Glottal      | Using the glottis (space between vocal cords) | "h", glottal stop            |
@@ -231,7 +231,7 @@
   | Affricate        | Plosives followed by fricatives                                                         | "ch", "j"                                  |
   | Laterals/Liquids | Produced with the tongue against the alveolar ridge                                     | "l", "r"                                   |
   | Taps/Flaps       | Quick, single contact of the tongue against the alveolar ridge                          | "tt" in "butter" in American English       |
-  | Approximants     | Produced with a narrowing of the vocal tract, but not enough to cause turbulent airflow | Glides: "w", "j"; Liquids: "l", "r"        |
+  | Approximants     | Produced with a narrowing of the vocal tract, but not enough to cause turbulent airflow | Glides: "w", /j/ (y); Liquids: "l", "r"    |
   
 ### Acoustic Phonetics
 

@@ -376,26 +376,19 @@ JOIN Courses ON Enrollments.course_id = Courses.id
 WHERE Courses.name = 'Math' OR Courses.name = 'Physics';
 ```
 
-$\pi_\text{name}(\text{Students} \bowtie\_\text{Students.id = Enrollments.student\\_id} (\text{Enrollments}) \bowtie\_\text{Enrollments.course\\_id = Courses.id} (\sigma\_{\text{name = 'Math'} \vee \text{name = 'Physics'}}(\text{Courses})))$
+$\pi_\text{name}(\text{Students})\bowtie(\text{Students.id = Enrollments.student\\_id} (\text{Enrollments}) \bowtie (\text{Enrollments.course\\_id = Courses.id} (\sigma\_{\text{name = 'Math'} \vee \text{name = 'Physics'}}(\text{Courses}))))$
 
 (6) List total number of students enrolled in each course of KL branch
 
 ```sql
-SELECT Courses.id, COUNT(Enrollments.student_id) AS total_students
+SELECT Courses.CourseID, Enrollments.StudentID
 FROM Courses
-JOIN Enrollments ON Courses.id = Enrollments.course_id
+JOIN Enrollments ON Courses.CourseID = Enrollments.CourseID
 WHERE Courses.branch = 'KL'
 GROUP BY Courses.id;
 ```
 
-<!-- markdownlint-disable MD033 -->
-$$
-\begin{aligned}
-\rho_{R}(\text{Course\\_ID, TotalStudents})_\text{Course.id}J_{\text{COUNT Enrollments.student\\_id}} \\
-(\pi_{\text{Courses.id, Enrollments.student\\_id}}(\sigma_{\text{branch = 'KL'}}(Courses) \\
-\bowtie_\text{Courses.id = Enrollments.course\\_id}(Enrollments)))
-\end{aligned}
-$$
+$\pi_\text{CourseID}(\sigma_\text{Branch = 'KL'}(Courses))\bowtie(\text{Course.CourseID = Enrollment.CourseID} J_\text{COUNT StudentID}(Enrollment))$
 
 ## Chapter 5: Relational Database Design
 

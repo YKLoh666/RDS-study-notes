@@ -349,9 +349,13 @@ GROUP BY Courses.id;
 ```
 
 <!-- markdownlint-disable MD033 -->
-$\rho_{R(\text{Course\\_ID, TotalStudents})}\bowtie\_{\text{Course.id = COUNT(Enrollments.student\\_id)}}$
-$(\pi\_{\text{Courses.id, Enrollments.student\\_id}}(\sigma\_{\text{branch = 'KL'}}(\text{Courses})$
-$\bowtie\_\text{Courses.id = Enrollments.course\\_id}(\text{Enrollments})))$
+$$
+\begin{aligned}
+\rho_{R}(\text{Course\\_ID, TotalStudents})_\text{Course.id}J_{\text{COUNT Enrollments.student\\_id}} \\
+(\pi_{\text{Courses.id, Enrollments.student\\_id}}(\sigma_{\text{branch = 'KL'}}(Courses) \\
+\bowtie_\text{Courses.id = Enrollments.course\\_id}(Enrollments)))
+\end{aligned}
+$$
 
 ## Chapter 5: Relational Database Design
 

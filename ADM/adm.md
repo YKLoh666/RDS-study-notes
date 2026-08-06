@@ -231,12 +231,14 @@
 
 - **Projection $\pi_{col1, col2, ...}$**: Equivalent to `SELECT col1, col2, ...` in SQL
 - **Selection $\sigma_{predicate}$**: Equivalent to `WHERE predicate` in SQL
-- **Rename $\rho_R (\text{new\_name})$**: Equivalent to `AS new_name` in SQL, commonly used for aggregated columns
+- **Rename $\rho_R (\text{new\\_name})$**: Equivalent to `AS new_name` in SQL, commonly used for aggregated columns
 <!-- markdownlint-disable MD033 -->
-- **Aggregation** $_\text{grp\_col1, grp\_col2, ...}$<img src="agg_symbol.png" width="14px" alt="agg_symbol"/>**$_\text{agg1 col1, agg2 col2}$**: Equivalent to `agg1(col1), agg2(col2) ... GROUP BY grp_col1, grp_col2, ...` in SQL
+- **Aggregation** $_\text{grp\\_col1, grp\\_col2, ...}J\_\text{agg1 col1, agg2 col2}$: Equivalent to `SELECT agg1(col1), agg2(col2) ... GROUP BY grp_col1, grp_col2, ...` in SQL
 
 > [!IMPORTANT]
 > There is no parenthesis () in the aggregation operator like in SQL.
+>
+> Write J as in <img src="agg_symbol.png" width="14px" alt="agg_symbol"/>
 
 - **Joins**
   - **Natural Join $\bowtie$**: Equivalent to `JOIN` in SQL
@@ -306,7 +308,7 @@ $Students$
 SELECT Name, Age FROM Students;
 ```
 
-$\pi_{Name, Age}(Students)$
+$\pi_\text{Name, Age}(Students)$
 
 (3) List name and age of students who are older than 20
 
@@ -314,7 +316,7 @@ $\pi_{Name, Age}(Students)$
 SELECT Name, Age FROM Students WHERE Age > 20;
 ```
 
-$\pi_{Name, Age}(\sigma_{Age > 20}(Students))$
+$\pi_\text{Name, Age}(\sigma_\text{Age > 20}(Students))$
 
 (4) List name and age of male students who are older than 20
 
@@ -322,7 +324,7 @@ $\pi_{Name, Age}(\sigma_{Age > 20}(Students))$
 SELECT Name, Age FROM Students WHERE Age > 20 AND Gender = 'M';
 ```
 
-$\pi_{Name, Age}(\sigma_{Age > 20 \wedge Gender = 'M'}(Students))$
+$\pi_{Name, Age}(\sigma_{\text{Age > 20} \wedge \text{Gender = 'M'}}(Students))$
 
 (5) List name of students who enrolled in both Math and Physics courses
 
@@ -334,7 +336,7 @@ JOIN Courses ON Enrollments.course_id = Courses.id
 WHERE Courses.name = 'Math' OR Courses.name = 'Physics';
 ```
 
-$\pi_{name}(Students) \bowtie_\text{Students.id = Enrollments.student\_id} (Enrollments) \bowtie_\text{Enrollments.course\_id = Courses.id} (\sigma_{\text{name = 'Math'} \vee \text{name = 'Physics'}}(Courses))$
+$\pi_\text{name}(\text{Students}) \bowtie\_\text{Students.id = Enrollments.student\\_id} (\text{Enrollments}) \bowtie\_\text{Enrollments.course\\_id = Courses.id} (\sigma\_{\text{name = 'Math'} \vee \text{name = 'Physics'}}(\text{Courses}))$
 
 (6) List total number of students enrolled in each course of KL branch
 
@@ -347,9 +349,9 @@ GROUP BY Courses.id;
 ```
 
 <!-- markdownlint-disable MD033 -->
-$\rho_{R}(\text{Course\_ID, TotalStudents})_\text{Course.id}$<img src="agg_symbol.png" width="14px" alt="agg_symbol"/>$_{\text{COUNT Enrollments.student\_id}}$
-$(\pi_{\text{Courses.id, Enrollments.student\_id}}(\sigma_{\text{branch = 'KL'}}(Courses)$
-$\bowtie_\text{Courses.id = Enrollments.course\_id}(Enrollments)))$
+$\rho_{R(\text{Course\\_ID, TotalStudents})}\bowtie\_{\text{Course.id = COUNT(Enrollments.student\\_id)}}$
+$(\pi\_{\text{Courses.id, Enrollments.student\\_id}}(\sigma\_{\text{branch = 'KL'}}(\text{Courses})$
+$\bowtie\_\text{Courses.id = Enrollments.course\\_id}(\text{Enrollments})))$
 
 ## Chapter 5: Relational Database Design
 

@@ -1,5 +1,34 @@
 # Advanced Database Management
 
+- [Advanced Database Management](#advanced-database-management)
+  - [Chapter 1: Information Models](#chapter-1-information-models)
+    - [Data, Information, Knowledge](#data-information-knowledge)
+    - [Categorization of Information](#categorization-of-information)
+    - [Information Capturing and Representation](#information-capturing-and-representation)
+    - [Types of Queries](#types-of-queries)
+    - [Information Security](#information-security)
+    - [Threats to Information Security](#threats-to-information-security)
+    - [Countermeasures to Threats](#countermeasures-to-threats)
+  - [Chapter 2: Database Systems](#chapter-2-database-systems)
+    - [Disadvantages of File Processing System](#disadvantages-of-file-processing-system)
+    - [Functions of RDBMS](#functions-of-rdbms)
+    - [Components of RDBMS](#components-of-rdbms)
+    - [ANSI-SPARC Architecture](#ansi-sparc-architecture)
+    - [Multi-User DBMS Architecture](#multi-user-dbms-architecture)
+    - [Transaction Processing Monitor (TP Monitor)](#transaction-processing-monitor-tp-monitor)
+    - [Distributed Database Management System (DDBMS)](#distributed-database-management-system-ddbms)
+  - [Chapter 3: Data Modeling](#chapter-3-data-modeling)
+  - [Chapter 4: Relation Model](#chapter-4-relation-model)
+    - [Relational Algebra Symbols](#relational-algebra-symbols)
+    - [Relational Algebra Examples](#relational-algebra-examples)
+  - [Chapter 5: Relational Database Design](#chapter-5-relational-database-design)
+    - [Update Anomalies](#update-anomalies)
+    - [Functional Dependencies](#functional-dependencies)
+    - [Normal Forms](#normal-forms)
+  - [Chapter 6: Indexing](#chapter-6-indexing)
+  - [Chapter 7: Physical Database Design](#chapter-7-physical-database-design)
+  - [Chapter 8: Transaction Processing](#chapter-8-transaction-processing)
+
 ## Chapter 1: Information Models
 
 ### Data, Information, Knowledge
@@ -41,15 +70,17 @@
 
 ### Types of Queries
 
-- **Procedural Queries** (cumbersome, requires technical knowledge)
-- **Declarative Queries** (only state what is needed but not how to get it, easier to use)
-- **Navigational Queries** (if searcher know path to the information, such as using website or file system)
+- **Procedural Queries** (cumbersome, requires technical knowledge, need to provide right sequence of instructions, e.g., using programming language)
+- **Declarative Queries** (only state what is needed but not how to get it, easier to use, SQL)
+- **Navigational Queries** (if searcher know path to the information, such as using website address or file system)
 
 ### Information Security
 
-- **Confidentiality** (Authentication in Database)
-- **Integrity** (CONSTRAINTS in Database)
-- **Availability** (Reliability and Timeliness of Database)
+  | Aspect          | Description                                                                                 | In SQL                |
+  | --------------- | ------------------------------------------------------------------------------------------- | --------------------- |
+  | Confidentiality | Information access is restricted to authorized users only                                   | GRANT, REVOKE         |
+  | Integrity       | Guarding against improper modification/instruction, ensure authenticity and non-repudiation | CONSTRAINTS, TRIGGERS |
+  | Availability    | Timeliness and Reliability of information                                                   | BACKUP, RECOVERY      |
 
 ### Threats to Information Security
 
@@ -100,7 +131,7 @@
   - FOREIGN KEY
   - CHECK
 - **Transaction Support**
-  - Ensures sequential execution success, or rollback to initial state in case of failure
+  - Ensures sequential execution success, or rollback to initial state in case of failure, maintaining database ACID properties
 
 > [!NOTE]
 > ACID Properties of Transaction: Atomicity, Consistency, Isolation, Durability
@@ -221,9 +252,18 @@
 
 ## Chapter 3: Data Modeling
 
-- ERD
+- Draw ERD
+  - Strong and Weak Relationships
+    - Strong for PK,FK only
+    - Weak for other FK
+  - Cardinality
+    - Optional one
+    - Mandatory one
+    - Optional many
+    - Mandatory many
 - Need explain relationship
-  - E.g. One student must enroll in at least one course, and a course can have zero or many students enrolled.
+  - E.g. One student must enroll in at least one course, and a course can have zero or many students enrolled. (Explain for each relationship)
+  - E.g. A weak associative entity called "Enrollment" is added to form 2 new pairs of one-to-many strong relationships. (Explain when associative entity is used)
 
 ## Chapter 4: Relation Model
 
@@ -373,7 +413,7 @@ Example 1NF table of order information:
 - **Insertion Anomaly**: Inability to add new records without adding redundant data
 
 > It is not possible to add the new product unless that new product is ordered by a customer
-> 
+>
 - **Modification Anomaly**: Inability to accurately maintain data due to redundancy. A change in one record may require changes to multiple records
 
 > Modifying the name of ProductID 101 from "Widget A" to "Widget A+" in the first row must also be done to the similar product in other rows, otherwise the data will be inconsistent

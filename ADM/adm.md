@@ -376,7 +376,7 @@ JOIN Courses ON Enrollments.course_id = Courses.id
 WHERE Courses.name = 'Math' OR Courses.name = 'Physics';
 ```
 
-$\pi_\text{name}(\text{Students}) \bowtie\_\text{Students.id = Enrollments.student\\_id} (\text{Enrollments}) \bowtie\_\text{Enrollments.course\\_id = Courses.id} (\sigma\_{\text{name = 'Math'} \vee \text{name = 'Physics'}}(\text{Courses}))$
+$\pi_\text{name}(\text{Students} \bowtie\_\text{Students.id = Enrollments.student\\_id} (\text{Enrollments}) \bowtie\_\text{Enrollments.course\\_id = Courses.id} (\sigma\_{\text{name = 'Math'} \vee \text{name = 'Physics'}}(\text{Courses})))$
 
 (6) List total number of students enrolled in each course of KL branch
 

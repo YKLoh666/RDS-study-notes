@@ -146,19 +146,19 @@
 ### Components of RDBMS
 
 - **Query Processor**: Transform queries into low-level instructions directed to the database manager
-- **Database Manager**: Responsible for managing the database and its operations
+- **Database Manager**: Responsible for managing the database and its operations, with the following sub-components
+  - **Authorization Control**
+  - **Command Processor**
+  - **Integrity Checker**
+  - **Query Optimizer**: Determines the most efficient way to execute a given query by considering possible query plans
+  - **Transaction Manager**: Ensure ACID properties of transactions
+  - **Scheduler**: Manage concurrency control
+  - **Recovery Manager**
+  - **Buffer Manager**: Manage transfer of data between main memory and secondary storage (disk)
 - **File Manager**: Responsible for the physical storage of data on disk
 - **DML Preprocessor**: Translates DML statements into standard functions calls in the host programming language
 - **DDL Compiler**: Converted into set of tables containing metadata, stored in the system catalog
 - **Catalog Manager**: Manage access and maintenance of the system catalog
-- **Authorization Control**
-- **Command Processor**
-- **Integrity Checker**
-- **Query Optimizer**: Determines the most efficient way to execute a given query by considering possible query plans
-- **Transaction Manager**: Ensure ACID properties of transactions
-- **Scheduler**: Manage concurrency control
-- **Recovery Manager**
-- **Buffer Manager**: Manage transfer of data between main memory and secondary storage (disk)
 
 ### ANSI-SPARC Architecture
 

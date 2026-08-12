@@ -1,42 +1,102 @@
 # Blockchain Application Development
 
+- [Blockchain Application Development](#blockchain-application-development)
+  - [Chapter 1: Introduction to Blockchain](#chapter-1-introduction-to-blockchain)
+    - [1.1 Glossary of Key Terms](#11-glossary-of-key-terms)
+    - [1.2 Blockchain Process (Step‑by‑Step)](#12-blockchain-process-stepbystep)
+    - [1.3 Blockchain Characteristics](#13-blockchain-characteristics)
+    - [1.4 Smart Contracts](#14-smart-contracts)
+    - [1.5 Types of Blockchain (Comparison)](#15-types-of-blockchain-comparison)
+    - [1.6 Example Blockchain Applications](#16-example-blockchain-applications)
+    - [1.7 Use Cases](#17-use-cases)
+  - [Chapter 2: Discovering Blockchain Technology](#chapter-2-discovering-blockchain-technology)
+    - [2.1 Elements of Trust](#21-elements-of-trust)
+    - [2.2 Core Technologies](#22-core-technologies)
+    - [2.3 Hash Function](#23-hash-function)
+      - [2.3.1 Block Header](#231-block-header)
+      - [2.3.2 Merkle Tree](#232-merkle-tree)
+    - [2.4 Public Key Cryptography](#24-public-key-cryptography)
+    - [2.5 Peer‑to‑Peer Network](#25-peertopeer-network)
+    - [2.6 Consensus Protocols](#26-consensus-protocols)
+      - [2.6.1 Proof of Work (PoW)](#261-proof-of-work-pow)
+      - [2.6.2 Proof of Stake (PoS)](#262-proof-of-stake-pos)
+        - [2.6.3 PoS in Ethereum](#263-pos-in-ethereum)
+      - [2.6.4 Practical Byzantine Fault Tolerance (PBFT)](#264-practical-byzantine-fault-tolerance-pbft)
+      - [2.6.5 Bitcoin UTXO Model](#265-bitcoin-utxo-model)
+  - [Chapter 3: Ethereum Platform](#chapter-3-ethereum-platform)
+    - [3.1 Ethereum Overview](#31-ethereum-overview)
+    - [3.2 Ethereum Nodes](#32-ethereum-nodes)
+    - [3.3 Ethereum Node Components](#33-ethereum-node-components)
+    - [3.4 Ethereum Accounts](#34-ethereum-accounts)
+    - [3.5 Ethereum Wallet](#35-ethereum-wallet)
+    - [3.6 Seed Words (Recovery/Mnemonic Phrase)](#36-seed-words-recoverymnemonic-phrase)
+    - [3.7 Ether (ETH)](#37-ether-eth)
+    - [3.8 Gas](#38-gas)
+    - [3.9 EIP1559 (London Upgrade – August 5, 2021)](#39-eip1559-london-upgrade--august-5-2021)
+    - [3.10 Gas Costs in EVM](#310-gas-costs-in-evm)
+    - [3.11 Transaction Fee Calculation](#311-transaction-fee-calculation)
+    - [3.12 Ethereum Virtual Machine (EVM)](#312-ethereum-virtual-machine-evm)
+    - [3.13 Merkle Patricia Trie](#313-merkle-patricia-trie)
+      - [3.13.1 Transaction Trie](#3131-transaction-trie)
+      - [3.13.2 Receipt Trie](#3132-receipt-trie)
+      - [3.13.3 World State Trie](#3133-world-state-trie)
+    - [3.14 Building Merkle Patricia Trie](#314-building-merkle-patricia-trie)
+    - [3.15 Verification at a Full Node](#315-verification-at-a-full-node)
+    - [3.16 Ethereum Blockchain Synchronization](#316-ethereum-blockchain-synchronization)
+    - [3.17 Limitations of PoW‑Based Ethereum](#317-limitations-of-powbased-ethereum)
+    - [3.18 Ethereum 2.0 (Eth2) Upgrade](#318-ethereum-20-eth2-upgrade)
+
+---
+
 ## Chapter 1: Introduction to Blockchain
 
-### Glossary
+### 1.1 Glossary of Key Terms
 
-- **Distributed Ledger**: A database that is shared and synchronized across multiple sites, institutions, or geographies.
-- **Blockchain**: A type of distributed ledger that contains linear, chronological blocks of data that are linked cryptographically.
-- **Node**: A computer that participates in the blockchain network by validating and relaying transactions.
-- **Block**: A collection of transactions that are bundled together and added to the blockchain.
-- **Transaction**: A record of a transfer of value or information between parties on the blockchain.
-- **Smart Contract**: A self-executing contract with the terms of the agreement between buyer and seller being directly written into lines of code.
-- **Consensus Mechanism**: A process used by nodes in a blockchain network to agree on the validity of transactions and the state of the ledger.
+| Term                    | Definition                                                                                             |
+| ----------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Distributed Ledger**  | A database shared and synchronized across multiple sites, institutions, or geographies.                |
+| **Blockchain**          | A type of distributed ledger containing linear, chronological blocks of data linked cryptographically. |
+| **Node**                | A computer that participates in the blockchain network by validating and relaying transactions.        |
+| **Block**               | A collection of transactions bundled together and added to the blockchain.                             |
+| **Transaction**         | A record of value or information transfer between parties on the blockchain.                           |
+| **Smart Contract**      | Self-executing code with agreement terms directly written into lines of code.                          |
+| **Consensus Mechanism** | A process used by nodes to agree on transaction validity and ledger state.                             |
 
-### Blockchain Process
+---
 
-- Someone requests a **transaction** to be added to the blockchain.
-- The transaction is broadcasted to a network of peer-to-peer computers, known as **nodes**.
-- The transaction is validated by these nodes using known algorithms.
-- The transaction is combined with other transactions to create a new **block** of data for the ledger.
-- The new block is then added to the existing blockchain, in a way that is permanent and unalterable.
+### 1.2 Blockchain Process (Step‑by‑Step)
 
-### Blockchain Characteristics
+1. **Transaction Request** – Someone requests a transaction to be added.  
+2. **Broadcast** – The transaction is broadcasted to the peer‑to‑peer network of nodes.  
+3. **Validation** – Nodes validate the transaction using known algorithms.  
+4. **Block Creation** – The transaction is combined with others to form a new block.  
+5. **Permanent Addition** – The new block is appended to the existing blockchain in an unalterable way.
 
-- **Data Immutability**
-- **Decentralization** (No intermediary)
-- **Transparency** (Auditable)
-- **Trust**
+---
 
-### Smart Contracts
+### 1.3 Blockchain Characteristics
 
-- Capability of executing code for embedding business logic on the blockchain.
-- Self-enforcing agreements embedded in computer code
-- Perform credible transactions without third parties
-- May feed external data into the smart contract through **oracles**.
+| Characteristic        | Description                                            |
+| --------------------- | ------------------------------------------------------ |
+| **Data Immutability** | Data cannot be altered once recorded.                  |
+| **Decentralization**  | No intermediary is required.                           |
+| **Transparency**      | The ledger is auditable by participants.               |
+| **Trust**             | Trust is established through cryptographic mechanisms. |
 
-### Type of Blockchain
+---
 
-|                    | Public            | Private               | Consortium            |
+### 1.4 Smart Contracts
+
+- Self‑enforcing agreements embedded in computer code.  
+- Enable execution of business logic on the blockchain.  
+- Perform credible transactions without third parties.  
+- Can feed external data into the contract via **oracles**.
+
+---
+
+### 1.5 Types of Blockchain (Comparison)
+
+| Feature            | Public            | Private               | Consortium            |
 | ------------------ | ----------------- | --------------------- | --------------------- |
 | Permissionless     | ✅                 | ❌                     | ❌                     |
 | Read Access        | Anyone            | Only authorized users | Depends               |
@@ -46,408 +106,481 @@
 | Transaction Speed  | Slow              | Fast                  | Fast                  |
 | Example            | Bitcoin, Ethereum | Hyperledger Fabric    | R3 Corda              |
 
-### Example of Blockchain Applications
+---
 
-- **Bitcoin**
-  - Public, permissionless
-  - Bitcoin
-  - Currency exchange only
-- **Ethereum**
-  - Public, permissionless
-  - Ether
-  - Currency exchange + Smart Contracts
-- **Hyperledger Fabric**
-  - Private, permissioned
-  - Smart Contracts
-  - Customizable consensus protocol
+### 1.6 Example Blockchain Applications
 
-### Use cases
+| Platform               | Type                   | Currency      | Features                                 |
+| ---------------------- | ---------------------- | ------------- | ---------------------------------------- |
+| **Bitcoin**            | Public, Permissionless | Bitcoin (BTC) | Currency exchange only                   |
+| **Ethereum**           | Public, Permissionless | Ether (ETH)   | Currency exchange + Smart Contracts      |
+| **Hyperledger Fabric** | Private, Permissioned  | N/A           | Smart Contracts + Customizable consensus |
 
-- **Supply Chain Management**
-  - Immutable and non-repudiable record of transactions
-  - Automated payment on delivery
-  - Automated penalties for late delivery
-  - Decentralized supply chain (No intermediary)
-- **Identity Management**
-  - Self-sovereign identity
-  - Decentralized identity management
-  - Secure and private identity verification
-- **Electronic Health Records (EHR) Sharing**
-  - Secure and private sharing of medical information
-  - Immutable and auditable health records
-- **P2P Insurance**
-  - Decentralized insurance platform
-  - Automated claims processing
+---
+
+### 1.7 Use Cases
+
+- **Supply Chain Management** – Immutable records, automated payments/penalties, no intermediary.  
+- **Identity Management** – Self‑sovereign, decentralised, secure verification.  
+- **Electronic Health Records (EHR) Sharing** – Secure, private, auditable medical data.  
+- **P2P Insurance** – Decentralised platform with automated claims processing.
+
+---
 
 ## Chapter 2: Discovering Blockchain Technology
 
-### Element of Trust
+### 2.1 Elements of Trust
 
-- **Immutable Records**: Distributed immutable ledger
-- **Verification**: Smart Contract functions/modifiers
-- **Validation**: Smart Contract functions/modifiers
-- **Consensus Mechanism**: Blockchain protocol
-- **Identity**: Private-Public key pair cryptography
-- **Confidentiality**: Cryptography and hashing algorithms
-- **Security**: Cryptography and hashing algorithms
-- **Privacy**: Cryptography and hashing algorithms
+| Element           | How It Is Achieved                 |
+| ----------------- | ---------------------------------- |
+| Immutable Records | Distributed immutable ledger       |
+| Verification      | Smart Contract functions/modifiers |
+| Validation        | Smart Contract functions/modifiers |
+| Consensus         | Blockchain protocol                |
+| Identity          | Private‑public key cryptography    |
+| Confidentiality   | Cryptography and hashing           |
+| Security          | Cryptography and hashing           |
+| Privacy           | Cryptography and hashing           |
 
-### Technologies Used in Blockchain
+---
 
-- [Hash Function](#hash-function)
-- [Public Key Cryptography](#public-key-cryptography)
-- [Peer-to-Peer Network](#peer-to-peer-network)
-- [Consensus Protocols](#consensus-protocols)
+### 2.2 Core Technologies
 
-#### Hash Function
+1. Hash Function  
+2. Public Key Cryptography  
+3. Peer‑to‑Peer Network  
+4. Consensus Protocols
 
-- Map arbitrary size data to fixed-size output (hash/digest)
-- **Properties**
-  - Deterministic
-  - Quick computation
-  - One-way function
-  - Astronomically low probability of collision
-  - Slight change in input drastically changes output
-- Examples
-  - MD5
-  - SHA-256 (SHA-2 family)
-  - Keccak-256 (Superseded SHA-3)
-- Functions
-  - Integrity Checking
-  - Password Storage and Protection
-  - Blockchain (Chain of blocks linked by hashes)
+---
 
-##### Block Header
+### 2.3 Hash Function
 
-- Used to provide a summary of the block and its contents.
-- Hashing the block header produces a unique identifier for the block, which is inserted into the next block's header to create a chain of blocks.
-- Use **SHA-256 double hashing** to generate the block hash.
+**Definition** – Maps arbitrary‑size data to a fixed‑size output (hash/digest).  
 
-| Field          | Description                                         | Size     |
-| -------------- | --------------------------------------------------- | -------- |
-| Version        | Version of the block                                | 4 bytes  |
-| hashPrevBlock  | Hash of the previous block                          | 32 bytes |
-| hashMerkleRoot | Hash of the Merkle root (All transactions)          | 32 bytes |
-| Time           | Epoch time of the block creation                    | 4 bytes  |
-| Bits           | Current target difficulty in compact format         | 4 bytes  |
-| Nonce          | 32-bit number needed to generate a valid block hash | 4 bytes  |
+**Properties**:
 
-##### Merkle Tree
+- Deterministic  
+- Quick computation  
+- One‑way (non‑reversible)  
+- Negligible collision probability  
+- Small input change → large output change  
 
-Given 7 transactions, the Merkle tree is constructed as follows:
+**Examples** – MD5, SHA‑256 (SHA‑2), Keccak‑256 (superseded SHA‑3)  
 
-1. Hash each transaction T1 to T7 to get H1 to H7, using
+**Uses** – Integrity checking, password storage, blockchain linking.
 
-    $H_i = SHA256(SHA256(T_i))$
+---
 
-2. Pair each hash and hash them together to get the next level of hashes. If there is an odd number of hashes, duplicate the last hash to make a pair.
+#### 2.3.1 Block Header
 
-    $H_{12} = SHA256(SHA256(H_1 + H_2))$
+- Provides a summary of the block and its contents.  
+- Hash of the header becomes the block’s unique identifier, inserted into the next block’s header to form the chain.  
+- Generated via **SHA‑256 double hashing**.
 
-    $H_{34} = SHA256(SHA256(H_3 + H_4))$
+| Field              | Description                                | Size     |
+| ------------------ | ------------------------------------------ | -------- |
+| **Version**        | Block version                              | 4 bytes  |
+| **hashPrevBlock**  | Hash of the previous block                 | 32 bytes |
+| **hashMerkleRoot** | Hash of all transactions (Merkle root)     | 32 bytes |
+| **Time**           | Epoch time of block creation               | 4 bytes  |
+| **Bits**           | Current target difficulty (compact format) | 4 bytes  |
+| **Nonce**          | 32‑bit number used to find a valid hash    | 4 bytes  |
 
-    $H_{56} = SHA256(SHA256(H_5 + H_6))$
+---
 
-    $H_{77} = SHA256(SHA256(H_7 + H_7))$
+#### 2.3.2 Merkle Tree
 
-3. Repeat the process until there is only one hash left, which is the Merkle root.
+**Construction** (example with 7 transactions):
 
-    $H_{1234} = SHA256(SHA256(H_{12} + H_{34}))$
-
-    $H_{5677} = SHA256(SHA256(H_{56} + H_{77}))$
-
-    $H_{root} = SHA256(SHA256(H_{1234} + H_{5677}))$
+1. Hash each transaction: `Hᵢ = SHA256(SHA256(Tᵢ))`
+2. Pair and hash consecutive hashes; duplicate the last if odd:  
+   `H₁₂ = SHA256(SHA256(H₁+H₂))`, … , `H₇₇ = SHA256(SHA256(H₇+H₇))`  
+3. Repeat until one root remains.
 
 ```txt
-
                         root
                          |
             ------------------------------
             |                            |
-        H_{1234}                     H_{5677}
+        H₁₂₃₄                        H₅₆₇₇
             |                            |
        -----------                  -----------
        |         |                  |         |
-    H_{12}     H_{34}            H_{56}     H_{77}
+    H₁₂       H₃₄                H₅₆       H₇₇
        |         |                  |         |
      ----       ----              ----       ----
      |  |       |  |              |  |       |  |
-    H1  H2     H3  H4            H5  H6     H7  H7
+    H₁  H₂     H₃  H₄            H₅  H₆     H₇  H₇
      |  |       |  |              |  |       |  |
-    T1  T2     T3  T4            T5  T6     T7  T7
+    T₁  T₂     T₃  T₄            T₅  T₆     T₇  T₇
 ```
 
-To verify that a transaction is included in the Merkle tree, you only need to provide the hashes along the path from the transaction to the root. For example, to verify T5, you need H1234, H6 and H77, which can be downloaded from **full node peers**.
+**Verification** – To prove T₅ is included, provide only H₁₂₃₄, H₆, and H₇₇ (obtained from full nodes).  
 
-Benefits:
+**Benefits** – Proves data integrity, requires little storage/computation, minimises network transmission.
 
-- Used to prove integrity of data
-- Require little memory/disk space (Easily to proof, fast computation)
-- Require only small amounts of information to be transmitted across the network
+---
 
-#### Public Key Cryptography
+### 2.4 Public Key Cryptography
 
-- ECDSA (Elliptic Curve Digital Signature Algorithm) is a public key cryptography algorithm used in blockchain.
-- Uses a pair of keys: a public key and a private key.
-- The private key is kept secret and is used to sign transactions, while the public key is shared with others to verify the signature.
-- The message cannot be forged without the private key, and the signature can be verified by anyone with the public key.
-- In blockchain, it is used to ensure the authenticity and integrity of transactions when they are broadcasted to the network.
-- The public key is hashed to create a public address, which is used to receive funds. The private key is used to sign transactions and spend funds from the corresponding public address.
+- Uses **ECDSA** (Elliptic Curve Digital Signature Algorithm).  
+- **Private key** – kept secret; used to sign transactions.  
+- **Public key** – shared; used to verify signatures.  
+- A transaction cannot be forged without the private key.  
+- Public address = hash of the public key (used to receive funds).
 
-#### Peer-to-Peer Network
+---
 
-- Group of nodes collectively store and share files.
-- Equal power, allow transactions without need for intermediary.
-- **Advantages**:
-  - Greater security
-  - Immune to DoS attacks
-  - With consensus protocol, data is almost impossible to tamper with
-  - Resistant to censorship by central authorities
-- **Disadvantages**:
-  - Distributed ledgers must be updated on every single node, require massive computing power
-  - Less scalable
-  - Difficult to control and regulate
+### 2.5 Peer‑to‑Peer Network
 
-#### Consensus Protocols
+- A group of nodes that collectively store and share files, with equal power, enabling trustless transactions.  
 
-- Procedure for all peers in a blockchain network to reach **common agreement** on the state of the distributed ledger.
-- Ensure every new block added to the blockchain is the one and only version of the truth that is agreed upon by all nodes in the network.
+**Advantages** – Greater security, DoS resistance, tamper‑resistant, censorship‑resistant.  
 
-##### Proof of Work (PoW)
+**Disadvantages** – High computing power required (every node updates), less scalable, difficult to regulate.
 
-- Miners solve a complex mathematical puzzle to validate transactions and create new blocks.
-- In Bitcoin, the puzzle is to find a nonce that, when hashed with the block header, produces a hash that is **less than the current target / produce certain count of leading zeros**, given by the network's difficulty level.
-- The network difficulty adjusts every 2016 blocks to ensure that a new block is mined approximately every 10 minutes, which is dependent on the hash rate of the network.
-- E.g., if all blocks are mined in 10 days instead of 14 days, the target will be multiplied by 10/14 (shrinking), increasing the difficulty of the puzzle and making it harder for miners to find a valid nonce.
-- Very CPU-intensive and energy-consuming.
-- **Mining Pools**: Groups of miners that combine their computational resources to increase their chances of solving the puzzle and earning rewards. The rewards are then distributed among the pool members based on their contributed hash power.
+---
 
-##### Proof of Stake (PoS)
+### 2.6 Consensus Protocols
 
-- **Validators**: Responsible for checking validity of new blocks propagated in the network, and creating new blocks when selected as block proposers.
-- Pool of validators vote on the validity of new blockchain block.
-- Validators must commit a deposit (stake), ethereum requires 32 ETH to become a validator.
-- Validators are selected pseudorandomly to create new blocks. (The more cryptocurrency a validator stakes, the higher their chances of being selected to create a new block.)
-- Validators are incentivized to act honestly, as they can lose their staked cryptocurrency if they validate fraudulent transactions or attempt to manipulate the blockchain. E.g. propose multiple blocks, submit contradictory attestations/votes
-- The created block needs to be broadcasted and validated by other validators in the network, who will vote on its validity. Each validator's vote is weighted based on the amount of cryptocurrency they have staked.
-- If the block is validated by a majority of validators, it is added to the blockchain, and the validator who created the block receives a reward in the form of transaction fees and newly minted cryptocurrency.
-- Advantages over PoW:
-  - **Accessibility** (lower entry barrier)
-  - **Decentralization** (lower barrier, more validators)
-  - **Scalability** (support sharding, which partitions the blockchain into multiple shard chains, each capable of processing its own transactions and smart contracts)
+A procedure for all peers to agree on the ledger state – every new block is the single version of truth.
 
-##### Practical Byzantine Fault Tolerance (PBFT)
+---
 
-- 3F + 1 nodes are required, where F is the maximum number of faulty nodes that can be tolerated in the network.
-- 2F + 1 nodes must agree on the validity of a transaction for it to be added to the blockchain.
+#### 2.6.1 Proof of Work (PoW)
 
-1. Transaction is broadcasted to all nodes in the network.
-2. Proposer chosen in round-robin fashion.
-3. Proposer broadcasts PRE-PREPARE message to all nodes, including the proposed block.
-4. All nodes broadcast PREPARE message to agree on the proposed block, requiring 2F + 1 PREPARE messages to move to the next step.
-5. Prepared nodes broadcast COMMIT message to agree on the proposed block, requiring 2F + 1 COMMIT messages to finalize the block.
-6. Finalized block is added to the blockchain, and all nodes moves to FINAL COMMITED state.
-7. New proposer is chosen, repeat.
+- Miners solve a cryptographic puzzle: find a nonce such that the block header hash is **below the target** (has a required number of leading zeros).  
+- Difficulty adjusts every 2016 blocks to maintain a ~10‑minute block time (e.g., if blocks come too fast, the target shrinks, increasing difficulty).  
+- Highly CPU‑ and energy‑intensive.  
+- **Mining pools** combine computational power and split rewards proportionally.
 
-##### Bitcoin UTXO Model
+---
 
-- UTXO (Unspent Transaction Output) 
-- Bitcoint does not hold account balances
-- Each account adding up number of bills (UTXOs) to get the total balance
-- The entire UTXO is spent in a transaction, and any leftover change is sent back to the sender as a new UTXO.
+#### 2.6.2 Proof of Stake (PoS)
 
-| Field           | Description                                                                                                          |
-| --------------- | -------------------------------------------------------------------------------------------------------------------- |
-| Version         | Version of the transaction                                                                                           |
-| Flag            | A value of 0x0001 indicates that the transaction using SegWit, which removes the signature data from the transaction |
-| In-counter      | No of input                                                                                                          |
-| List of inputs  |                                                                                                                      |
-| Out-counter     | No of output                                                                                                         |
-| List of outputs |                                                                                                                      |
-| Witnesses       | List of witnesses                                                                                                    |
-| Lock time       | Identifies the earliest time or blockchain height at which the transaction may be added to the blockchain            |
+- Validators stake a deposit to participate.  
+- They bet on the validity of a block; rewards are proportional to the stake.  
+- Cheaters lose their stake and are banned.  
 
-- Transactions
-  - Movement of value from one address to another
-  - Transactions recorded on the blockchain are to be confirmed
-  - Transfer of control of funds require signing the transaction with the private key
-  - Public key is used to verify the signature and ensure that the transaction is valid
-  - Transaction fee is paid in order for a transaction to go through quickly.
-- Coinbase Transaction
-  - First transaction recorded on every block
-  - Contains
-    - **Block reward**: Reward received by the miner for successfully discovering a new block. Block reward is halved every 4 years until reaching 0 at the year 2140. 
-    - **Transaction fees**: Sum of all transaction fees included in each transaction added to the current block. Transaction fees are paid by users to incentivize miners to include their transactions in the next block.
-- Double Spending
-  - Attempting to spend the same UTXO in multiple transactions.
-  - Can inflate the total supply of a cryptocurrency and undermine the integrity of the blockchain.
-  - Solution
-    - **First in Line**: Accept the first transaction that reaches the ledger
-    - **Tie Breaker**: If same time, create two branches of the blockchain, next block mined will determine which branch is valid, the other branch will be discarded.
-    - **Longer chain wins**: Longer chain is always considered the valid chain, as it represents the most computational work done by the network.
-    - **Safe waits**: Wait for 6 confirmations before considering a transaction as final, as it is highly unlikely for a transaction to be reversed after 6 confirmations.
-    - 51% Attack: If an attacker controls more than 50% of the network's hash rate, they can create a longer chain and reverse transactions, allowing them to double spend. This is a risk in smaller blockchain networks with lower hash rates.
+**Advantages over PoW** – Lower entry barrier, greater decentralisation, better scalability (supports sharding).
+
+---
+
+##### 2.6.3 PoS in Ethereum
+
+- **Becoming a validator** – Stake 32 ETH, run execution/consensus clients, join an activation queue.  
+- **Block proposal** – One epoch = 32 slots (12 seconds each); validators are shuffled and randomly assigned to slots to prevent collusion. One validator per slot proposes a block; others attest (vote).  
+- **Rewards** – Proposers and attesters earn ETH.  
+- **Penalties** – Offline or dishonest behaviour (e.g., double‑proposing, contradictory attestations) results in loss of staked ETH.
+
+---
+
+#### 2.6.4 Practical Byzantine Fault Tolerance (PBFT)
+
+- Requires **3F + 1** nodes (F = maximum faulty nodes tolerated).  
+- **2F + 1** nodes must agree on a transaction.  
+- **Process**:  
+  1. Transaction broadcast to all nodes.  
+  2. Proposer chosen round‑robin.  
+  3. Proposer sends PRE‑PREPARE with the block.  
+  4. Nodes send PREPARE (need 2F+1).  
+  5. Nodes send COMMIT (need 2F+1).  
+  6. Block finalised; new proposer chosen.
+
+---
+
+#### 2.6.5 Bitcoin UTXO Model
+
+- **UTXO** = Unspent Transaction Output.  
+- Bitcoin does **not** store account balances; balance is the sum of all UTXOs.  
+- A transaction consumes entire UTXOs; change is returned as a new UTXO.  
+
+**Transaction fields** – Version, Flag (SegWit indicator), In‑counter, Input list, Out‑counter, Output list, Witnesses, Lock time.  
+
+**Coinbase transaction** – First in each block; contains block reward (halved every 4 years until 2140) and transaction fees.  
+
+**Double‑spending** – Attempting to spend the same UTXO twice.
+
+Mitigations:
+
+- Accept the first transaction seen.  
+- If simultaneous, create two branches; next block determines the winner.  
+- The longest chain is considered valid.  
+- Wait for 6 confirmations.  
+- A 51% attack can reverse transactions (risk in smaller networks).
+
+---
 
 ## Chapter 3: Ethereum Platform
 
-### Ethereum Overview
+### 3.1 Ethereum Overview
 
-- Vitalik Buterin proposed Ethereum in 2013 to expand the use of blockchain technology beyond cryptocurrency.
-- Dr. Gavin Wood, one of the co-founders of Ethereum, developed the Ethereum Virtual Machine (EVM) and the Solidity programming language to enable developers to create decentralized applications (dApps) on the Ethereum blockchain.
-- Implement to simplify smart contract development and deployment.
-- Main innovations:
-  - **EVM (Ethereum Virtual Machine)**: A Turing-complete virtual machine that executes smart contracts on the Ethereum blockchain.
-  - **Smart Contracts**: Self-executing contracts with the terms of the agreement between buyer and seller being directly written into lines of code.
-  - **Improved Blockchain Design**: Modified version of Merkle Tree called **Patricia Merkle Tree**
-- **Genesis block**: The first block in the Ethereum blockchain, created at the network's launch.
+- Proposed by Vitalik Buterin in 2013 to extend blockchain beyond currency.  
+- Dr. Gavin Wood co‑founded and built the EVM and Solidity.  
+- Aims to simplify dApp development.  
 
-### Ethereum Nodes
+**Main innovations** – EVM (Turing‑complete), smart contracts, and a **Patricia Merkle Tree**‑based blockchain.  
 
-|                         | Full Node                                                                 | Light Node                                                                   |
-| ----------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| Data Storage            | Stores the entire blockchain and all its data, including all transactions | Stores only the block headers without block bodies                           |
-| Resource Demand         | High resource demand (CPU, memory, storage)                               | Low resource demand (CPU, memory, storage)                                   |
-| Query Capabilities      | Can query any data on the blockchain, including historical data           | Cannot query historical data, needs to rely on full nodes for data retrieval |
-| Consensus Participation | Can perform block validation and participate in the consensus process     | Cannot perform block validation or participate in the consensus process      |
+**Genesis block** – The first block, created at network launch.
 
-- **Archive Node**
-  - Entire history of the blockchain dating back to the genesis block
-  - Used by block explorers, wallets and on chain analytics platforms to provide historical data and insights into the blockchain's activity.
+---
 
-### Ethereum Node
+### 3.2 Ethereum Nodes
 
-- **JSON-RPC API**:
-  - Expose functionality of the client to other nodes and external users
-- **Client Process**:
-  - Interpret and execute JSON-RPC API requests
-  - Coordinates processings
-  - Dispatch transactions to the **EVM** for execution
-  - Store and retrieve transaction from **memory pool**
-  - Append incoming blocks to the local blockchain
-- **EVM (Ethereum Virtual Machine)**:
-  - Executes smart contracts and transactions
-  - Maintains the state of the blockchain
-- **Memory Pool**:
-  - Temporary hold unconfirmed transactions before they are included in a block
-- **Blockchain DB**
-  - Keep transaction data & smart contract bytecode & their state
+| Type           | Data Stored                          | Resource Demand | Query Capability                         | Consensus Participation |
+| -------------- | ------------------------------------ | --------------- | ---------------------------------------- | ----------------------- |
+| **Full Node**  | Entire blockchain + all transactions | High            | All historical data                      | Yes                     |
+| **Light Node** | Only block headers                   | Low             | Relies on full nodes for historical data | No                      |
 
-### Ethereum Accounts
+**Archive Node** – Stores all history from genesis; used by explorers, wallets, and analytics platforms.
 
-- **Externally Owned Accounts (EOA)**
-  - User acccount
-  - Controlled by private key
-  - Identifiable from public key
-  - Has Ether balance
-  - Can start transaction message (write operation that publishes a transaction on the blockchain, consumes gas, and changes the state of the blockchain)
-- **Contract Accounts**
-  - Accounts where smart contracts are executed under
-  - Address generated at deployment time, identifies its location on the blockchain
-  - Has Ether balance
-  - Can start call message (invocation of function that does not publish a transaction on the blockchain, does not consume gas, and does not change the state of the blockchain)
-  - Has code (bytecode) that is executed by the EVM when a transaction is sent to the contract account
+---
 
-### Ethereum Wallet
+### 3.3 Ethereum Node Components
 
-- An application that allows users to manage Ethereum accounts, including view balances, send and receive Ether.
-- Can be software-based (desktop, mobile, web) or hardware-based (physical device).
+| Component          | Role                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| **JSON‑RPC API**   | Exposes client functionality to other nodes and users.                                           |
+| **Client Process** | Handles API requests, coordinates execution, dispatches to EVM, manages mempool, appends blocks. |
+| **EVM**            | Executes smart contracts and transactions; maintains state.                                      |
+| **Memory Pool**    | Holds unconfirmed transactions until they are included in a block.                               |
+| **Blockchain DB**  | Stores transaction data, contract bytecode, and state.                                           |
 
-### Seed words
+---
 
-- Recovery phrase, mnemonic phrase, or seed phrase
-- An ordered list of 12-24 dictionary words
-- Used as master key to generate all private keys and public addresses for an Ethereum wallet, allowing users to recover their wallet and access their funds if they lose access to their device or forget their password.
-- Essentially unique, 2^128 (12) to 2^256 (24) combinations
-- Cannot forge a seed phrase, as the checksum is built into the seed phrase (last word)
+### 3.4 Ethereum Accounts
 
-### Ether
+| Type                       | Control                   | Identification                  | Balance | Operations                                                                                |
+| -------------------------- | ------------------------- | ------------------------------- | ------- | ----------------------------------------------------------------------------------------- |
+| **Externally Owned (EOA)** | Private key               | Public key                      | Ether   | Can start **transaction** (writes to chain, consumes gas, changes state)                  |
+| **Contract Account**       | Bytecode (contract logic) | Address generated at deployment | Ether   | Can start **call** (reads only, no gas, no state change) – has associated code (bytecode) |
 
-| Unit       | Other Names | Value in Wei |
-| ---------- | ----------- | ------------ |
-| Wei        | -           | 1            |
-| Kwei       | Babbage     | 1e3          |
-| Mwei       | Lovelace    | 1e6          |
-| Gwei       | Shannon     | 1e9          |
-| Microether | Szabo       | 1e12         |
-| Milliether | Finney      | 1e15         |
-| Ether      | -           | 1e18         |
+---
 
-### Gas
+### 3.5 Ethereum Wallet
 
-- Unit of measure for transaction fees
-- Depends on the amount of computation resources EVM needs to execute a transaction
-- Depends on low level operations (opcodes) executed by the EVM
-- **Why**: prevent DoS attack by malicious users
+An application that lets users manage accounts – view balances, send/receive Ether.  
+Types: software‑based (desktop, mobile, web) or hardware‑based (physical device).
 
-$\text{Transaction Fee} = \text{Gas Used} \times \text{Price per Gas Unit (In Ether)}$
+---
 
-- **Gas Limit**: When the gas limit is reached before transaction is completed, the transaction throws end of gas exception and rolls back.
-- **Block Gas Limit**: One block can only contain transactions that consume a total amount of gas up to the `block gas limit`.
+### 3.6 Seed Words (Recovery/Mnemonic Phrase)
 
-### EIP1559 (London-Upgrade - 05/08/2021)
+- An ordered list of **12‑24** dictionary words.  
+- Acts as a master key to regenerate all private keys and addresses.  
+- Allows full wallet recovery if access is lost.  
+- Security: 2¹²⁸ (12 words) to 2²⁵⁶ (24 words) combinations; the checksum (last word) prevents forgery.
 
-- Introduced a new fee structure
-- Make transaction fees more predictable
-- Fee Structure
-  - **Base Fee**: Standard Charge based on network traffic
-  - **Priority Fee (Tip)**: Optional fee paid to miners to prioritize transaction processing
-  - **Max Fee**: Optional maximum fee that a user is willing to pay for a transaction, which includes both the base fee and the priority fee. The leftover is refunded to the user after the transaction is processed. Useful when base fee is changing while transaction is pending.
-- All base fees must be burned, which reduces the total supply of Ether and increases its scarcity, making it more valuable over time. This is a deflationary mechanism to counteract the inflationary effect of block rewards and transaction fees, which can increase the total supply of Ether over time.
+---
 
-### Gas Cost in EVM
+### 3.7 Ether (ETH)
 
-| Opcode           | Description                                                    | Gas Cost |
-| ---------------- | -------------------------------------------------------------- | -------- |
-| ADD, SUB         | Addition, Subtraction                                          | 3        |
-| MUL, DIV         | Multiplication, Division                                       | 5        |
-| LT, GT, SLT, SGT | Less than, Greater than, Signed less than, Signed greater than | 3        |
-| MLOAD            | Load word from memory                                          | 3        |
-| MSTORE           | Save word to memory                                            | 3        |
-| SLOAD            | Load word from storage                                         | 200      |
-| SSTORE           | Save word to storage                                           | > 5000   |
-| CREATE           | Deploy a new contract                                          | 32000    |
-| Transfer         | Transfer Ether from one account to another                     | 21000    |
+| Unit       | Other Name | Value in Wei |
+| ---------- | ---------- | ------------ |
+| Wei        | –          | 1            |
+| Kwei       | Babbage    | 1e3          |
+| Mwei       | Lovelace   | 1e6          |
+| Gwei       | Shannon    | 1e9          |
+| Microether | Szabo      | 1e12         |
+| Milliether | Finney     | 1e15         |
+| Ether      | –          | 1e18         |
 
-### Transaction Fee Calculation
+---
 
-- Variables
-  - **Gas Limit**
-  - **Base Fee**
-  - **Priority Fee**
-  - **(Optional) Transfer Amount**: Only needed if the transaction involves transferring Ether from one account to another.
-- Calculate
-  - **Total Transaction Fee** = Gas Limit * (Base Fee + Priority Fee)
-  - **ETH Deducted from Account** = Total Transaction Fee + Transfer Amount
-  - **ETH Received by Recipient** = Transfer Amount
-  - **Tip Received by Validator** = Gas Limit * Priority Fee
-  - **ETH Burned** = Gas Limit * Base Fee
+### 3.8 Gas
 
-### Ethereum Virtual Machine (EVM)
+- Unit measuring transaction fees.  
+- Depends on the computational resources (opcodes) required.  
+- **Purpose**: Prevents DoS attacks.  
+- **Formula**: `Transaction Fee = Gas Used × Price per Gas Unit (in ETH)`  
+- **Gas Limit** – maximum gas a transaction can consume; if exceeded, the transaction reverts.  
+- **Block Gas Limit** – maximum total gas for all transactions in one block.
 
-- **Properties**
-  - Stack-based abstract computing machine
-  - Lightweight OS specifically run smart contracts
-  - Enable computer to run Ethereum applications
-  - EVM is sandboxed
-  - Turing Complete instruction set
-- **Memory Areas**
-  - **Volatile Memory**: Word-addressed byte array, read 256 bits at a time, write on 8 bits or 256 bits at a time
-  - **Storage**: Key-value store, each key and value width of 256 bits; every contract has its own storage accessible only by that contract; storage is persistent and expensive to read/write
-- **Byte Code**: Compiled code of smart contract
-- **Opcodes**: Low-level instructions executed by the EVM, similar to assembly language
+---
 
-### Merkle Patricia Trie
+### 3.9 EIP1559 (London Upgrade – August 5, 2021)
 
-- 3 desired properties
-  - New tree root can be **quickly calculated** after create, update, delete operations
-  - **Bounded tree depth**, the deeper the tree, the slower the update, attacker can exploit deep tree to DoS attack the network
-  - Root of the tree is **data dependent, not update order dependent**, so that the same data will always produce the same root, regardless of the order in which it was added to the tree.
-- Combine Merkle Tree and Patricia Trie
-- Each Ethereum Block contains
-  - Merkle Patricia Root of transactions
-  - Merkle Patricia Root of receipts (transaction outputs like status, gas used, logs, contract address, etc.)
-  - Merkle Patricia Root of current blockchain state (account balances, contract storage, etc.)
+Makes fees more predictable.  
 
-#### Transaction Trie
+**Fee components**:  
 
-- 
+- **Base fee** – standard charge based on network traffic (burned).  
+- **Priority fee (tip)** – optional incentive for miners.  
+- **Max fee** – optional cap (base + priority); any leftover refunded.  
+
+Burning base fees reduces ETH supply, creating a deflationary effect.
+
+---
+
+### 3.10 Gas Costs in EVM
+
+| Opcode           | Description             | Gas Cost |
+| ---------------- | ----------------------- | -------- |
+| ADD, SUB         | Addition/Subtraction    | 3        |
+| MUL, DIV         | Multiplication/Division | 5        |
+| LT, GT, SLT, SGT | Comparisons             | 3        |
+| MLOAD            | Load from memory        | 3        |
+| MSTORE           | Store to memory         | 3        |
+| SLOAD            | Load from storage       | 200      |
+| SSTORE           | Store to storage        | >5000    |
+| CREATE           | Deploy contract         | 32000    |
+| Transfer         | Ether transfer          | 21000    |
+
+---
+
+### 3.11 Transaction Fee Calculation
+
+**Inputs** – Gas Limit, Base Fee, Priority Fee, (optional) Transfer Amount.
+
+| Calculated Value          | Formula                                 |
+| ------------------------- | --------------------------------------- |
+| Total transaction fee     | Gas Limit × (Base Fee + Priority Fee)   |
+| ETH deducted from account | Total transaction fee + Transfer Amount |
+| ETH received by recipient | Transfer Amount                         |
+| Tip to validator          | Gas Limit × Priority Fee                |
+| ETH burned                | Gas Limit × Base Fee                    |
+
+---
+
+### 3.12 Ethereum Virtual Machine (EVM)
+
+- Stack‑based, Turing‑complete, sandboxed virtual machine.  
+- Runs smart contracts on Ethereum.  
+
+**Memory areas**:
+
+- **Volatile memory** – word‑addressed byte array (reads 256‑bit, writes 8/256‑bit).  
+- **Storage** – persistent key‑value store (256‑bit keys/values); each contract has its own; expensive to read/write.  
+
+**Byte code** – compiled smart contract.  
+**Opcodes** – low‑level instructions (similar to assembly).
+
+---
+
+### 3.13 Merkle Patricia Trie
+
+Combines Merkle Tree and Patricia Trie.  
+**Desired properties**:  
+
+- Quick root recalculation after updates.  
+- Bounded depth (prevents DoS attacks).  
+- Root depends only on data, not update order.  
+
+Each Ethereum block contains three roots:  
+
+- Transaction root  
+- Receipt root  
+- World state root
+
+---
+
+#### 3.13.1 Transaction Trie
+
+- **Not updated** after block is mined.  
+- Stores: nonce, gas price, gas limit, recipient, value, signature, and either initialisation (contract creation) or data (message call).
+
+---
+
+#### 3.13.2 Receipt Trie
+
+- **Never updated**.  
+- Stores: post‑transaction state, cumulative gas used, logs, and a Bloom filter for quick log lookups.
+
+---
+
+#### 3.13.3 World State Trie
+
+- **Updated over time**; all fields except code hash are mutable.  
+- Stores per‑account: nonce, balance, storage root, and code hash (empty for EOAs).
+
+---
+
+### 3.14 Building Merkle Patricia Trie
+
+**Node types**:  
+
+- **Extension** – shared prefix: `| prefix | shared nibbles | next node |`  
+- **Branch** – diverging paths: `| 0 | 1 | 2 | … | f | value |`  
+- **Leaf** – end of a key: `| prefix | key‑end | value |`  
+
+**Prefixes**:  
+
+| Node Type | Path Length | Prefix |
+| --------- | ----------- | ------ |
+| Extension | Even        | 0x00   |
+| Extension | Odd         | 0x1    |
+| Leaf      | Even        | 0x20   |
+| Leaf      | Odd         | 0x3    |
+
+*Prefix also aligns the path to even nibbles.*
+
+**Example** (keys and values):  
+
+- `A711355` → 45.0 ETH  
+- `A77D337` → 1.00 WEI  
+- `A7F9365` → 1.1 ETH  
+- `A77D397` → 0.12 ETH  
+
+```txt
+                   Extension
+                   +---------------+
+                   | 0x00 | A7 |   |
+                   +---------------+
+                                 |
+                   Branch        |
+             +-----+---+-----+---+-----+---+-------+
+             | ... | 1 | ... | 7 | ... | f | value |
+             +-----+---+-----+---+-----+---+-------+
+                     |         |         |
+Leaf                 |   Extension      Leaf
++------+------+--------+ +---+----+---+ +------+------+---------+
+| 0x20 | 1355 | 45 ETH | | 0 | d3 |   | | 0x20 | 9365 | 1.1 ETH |
++------+------+--------+ +---+----+---+ +------+------+---------+
+                                    |
+                  Branch            |
+                  +-----+---+-----+---+-----+-------+
+                  | ... | 3 | ... | 9 | ... | value |
+                  +-----+---+-----+---+-----+-------+
+                          |         |
+          Leaf            |    Leaf |
+          +-----+---+-------+  +-----+---+----------+
+          | 0x3 | 7 | 1 WEI |  | 0x3 | 7 | 0.12 ETH |
+          +-----+---+-------+  +-----+---+----------+
+```
+
+---
+
+### 3.15 Verification at a Full Node
+
+- Transactions are organised in a transaction trie.  
+- EVM executes them and generates receipts, which are arranged in a receipt trie.  
+- The world state changes (only one instance per node).  
+- **Block validity** is confirmed if all three root hashes in the block header match those recomputed.  
+
+**What can be verified** – transaction inclusion, transaction output, account existence, and account balance.
+
+---
+
+### 3.16 Ethereum Blockchain Synchronization
+
+| Mode      | Historical Data         | History Validation       | Speed   | Integrity | New Block Validation |
+| --------- | ----------------------- | ------------------------ | ------- | --------- | -------------------- |
+| **Full**  | Entire blockchain       | Full validation          | Slow    | Highest   | Yes                  |
+| **Fast**  | Entire blockchain       | 64 blocks prior to start | Faster  | Higher    | Yes                  |
+| **Light** | Only current state trie | None                     | Fastest | Lower     | Yes                  |
+
+---
+
+### 3.17 Limitations of PoW‑Based Ethereum
+
+- Energy‑intensive mining.  
+- Slow transaction processing.  
+- High financial barrier limits scalability.
+
+---
+
+### 3.18 Ethereum 2.0 (Eth2) Upgrade
+
+- Transition to **Proof of Stake** – reduces energy consumption.  
+- Introduces **shard chains** – improves scalability.  
+- Lower entry barrier for validators.

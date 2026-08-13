@@ -22,7 +22,7 @@
       - [2.6.2 Proof of Stake (PoS)](#262-proof-of-stake-pos)
         - [2.6.3 PoS in Ethereum](#263-pos-in-ethereum)
       - [2.6.4 Practical Byzantine Fault Tolerance (PBFT)](#264-practical-byzantine-fault-tolerance-pbft)
-      - [2.6.5 Bitcoin UTXO Model](#265-bitcoin-utxo-model)
+      - [2.6.5 Bitcoin Transaction](#265-bitcoin-transaction)
   - [Chapter 3: Ethereum Platform](#chapter-3-ethereum-platform)
     - [3.1 Ethereum Overview](#31-ethereum-overview)
     - [3.2 Ethereum Nodes](#32-ethereum-nodes)
@@ -120,6 +120,8 @@
 
 ### 1.7 Use Cases
 
+- **DeFi (Decentralised Finance)** – Peer‑to‑peer financial services without intermediaries.
+- **NFTs (Non‑Fungible Tokens)** – Unique digital assets with verifiable ownership.
 - **Supply Chain Management** – Immutable records, automated payments/penalties, no intermediary.  
 - **Identity Management** – Self‑sovereign, decentralised, secure verification.  
 - **Electronic Health Records (EHR) Sharing** – Secure, private, auditable medical data.  
@@ -142,20 +144,22 @@
 | Security          | Cryptography and hashing           |
 | Privacy           | Cryptography and hashing           |
 
+- All the above replaces **Intermediary Trust** and **Issuance Trust** of traditional centralised systems.
+
 ---
 
 ### 2.2 Core Technologies
 
-1. Hash Function  
-2. Public Key Cryptography  
-3. Peer‑to‑Peer Network  
-4. Consensus Protocols
+1. [Hash Function](#23-hash-function)
+2. [Public Key Cryptography](#24-public-key-cryptography)
+3. [Peer‑to‑Peer Network](#25-peertopeer-network)
+4. [Consensus Protocols](#26-consensus-protocols)
 
 ---
 
 ### 2.3 Hash Function
 
-**Definition** – Maps arbitrary‑size data to a fixed‑size output (hash/digest).  
+**Definition** – Maps variable-length data to a fixed‑size output (hash/digest).  
 
 **Properties**:
 
@@ -165,7 +169,7 @@
 - Negligible collision probability  
 - Small input change → large output change  
 
-**Examples** – MD5, SHA‑256 (SHA‑2), Keccak‑256 (superseded SHA‑3)  
+**Examples** – MD5, SHA‑256 (SHA‑2), Keccak‑256 (algorithm superseded by SHA‑3)  
 
 **Uses** – Integrity checking, password storage, blockchain linking.
 
@@ -289,15 +293,41 @@ A procedure for all peers to agree on the ledger state – every new block is th
 
 ---
 
-#### 2.6.5 Bitcoin UTXO Model
+#### 2.6.5 Bitcoin Transaction
+
+Header fields
+
+| Field       | Description                            |
+| ----------- | -------------------------------------- |
+| Version     | Transaction format version             |
+| Flag        | SegWit indicator (0x0001)              |
+| In‑counter  | Number of input UTXOs                  |
+| Input list  | List of input UTXOs                    |
+| Out‑counter | Number of output UTXOs                 |
+| Output list | List of output UTXOs                   |
+| Witnesses   | List of witness data (SegWit)          |
+| Lock time   | Earliest time transaction can be added |
+
+Input fields
+
+| Field     | Description                            |
+| --------- | -------------------------------------- |
+| txid      | Hash of the previous transaction       |
+| vout      | Index of the output in the previous tx |
+| scriptSig | Unlocking script (signature + pubkey)  |
+
+Output fields
+
+| Field        | Description                          |
+| ------------ | ------------------------------------ |
+| value        | Amount in satoshis                   |
+| scriptPubKey | Locking script (conditions to spend) |
 
 - **UTXO** = Unspent Transaction Output.  
 - Bitcoin does **not** store account balances; balance is the sum of all UTXOs.  
-- A transaction consumes entire UTXOs; change is returned as a new UTXO.  
+- A transaction consumes entire UTXOs; change is returned as a new UTXO.
 
-**Transaction fields** – Version, Flag (SegWit indicator), In‑counter, Input list, Out‑counter, Output list, Witnesses, Lock time.  
-
-**Coinbase transaction** – First in each block; contains block reward (halved every 4 years until 2140) and transaction fees.  
+**Coinbase transaction** – First in each block; contains block reward (halved every 4 years until 2140) + transaction fees (total of all fees in the block).  
 
 **Double‑spending** – Attempting to spend the same UTXO twice.
 
@@ -306,7 +336,7 @@ Mitigations:
 - Accept the first transaction seen.  
 - If simultaneous, create two branches; next block determines the winner.  
 - The longest chain is considered valid.  
-- Wait for 6 confirmations.  
+- Wait for 6 confirmations is recommended for high‑value transactions.
 - A 51% attack can reverse transactions (risk in smaller networks).
 
 ---
@@ -319,7 +349,7 @@ Mitigations:
 - Dr. Gavin Wood co‑founded and built the EVM and Solidity.  
 - Aims to simplify dApp development.  
 
-**Main innovations** – EVM (Turing‑complete), smart contracts, and a **Patricia Merkle Tree**‑based blockchain.  
+**Main innovations** – EVM (Turing‑complete), smart contracts, and a **Merkle Patricia Tree**‑based blockchain.  
 
 **Genesis block** – The first block, created at network launch.
 
@@ -484,14 +514,14 @@ Each Ethereum block contains three roots:
 #### 3.13.2 Receipt Trie
 
 - **Never updated**.  
-- Stores: post‑transaction state, cumulative gas used, logs, and a Bloom filter for quick log lookups.
+- Stores: post‑transaction state, cumulative gas used, logs, and a Bloom filter for quick log lookups without scanning all logs.
 
 ---
 
 #### 3.13.3 World State Trie
 
 - **Updated over time**; all fields except code hash are mutable.  
-- Stores per‑account: nonce, balance, storage root, and code hash (empty for EOAs).
+- Stores per‑account: nonce (transaction count), balance, storage root, and code hash (empty for EOAs).
 
 ---
 

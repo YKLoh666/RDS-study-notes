@@ -9,3 +9,4 @@
 - [BMDS2123 Natural Language Processing](NLP)
 - [BMCS3183 Advanced Database Management](ADM)
 - [BMIS2003 Blockchain Application Development](BAD)
+- [BMIT3003 Data Warehouse Technology](DWT)

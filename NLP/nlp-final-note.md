@@ -1,5 +1,34 @@
 # Natural Language Processing (NLP)
 
+- [Natural Language Processing (NLP)](#natural-language-processing-nlp)
+  - [Chapter 1: Introduction to NLP](#chapter-1-introduction-to-nlp)
+    - [NLP Components](#nlp-components)
+    - [Ambiguity in NLP (NLU \& NLG)](#ambiguity-in-nlp-nlu--nlg)
+    - [NLU Steps](#nlu-steps)
+    - [Real World Examples of NLP](#real-world-examples-of-nlp)
+  - [Chapter 2: Text Preprocessing \& Morphology Analysis](#chapter-2-text-preprocessing--morphology-analysis)
+    - [Normalisation](#normalisation)
+    - [Stop Word Removal](#stop-word-removal)
+    - [Concepts of Morphology](#concepts-of-morphology)
+  - [Chapter 4: Synthetic Analysis](#chapter-4-synthetic-analysis)
+    - [Part-of-Speech (POS) Tagging](#part-of-speech-pos-tagging)
+    - [Hidden Markov Model](#hidden-markov-model)
+  - [Chapter 5: Semantic Analysis](#chapter-5-semantic-analysis)
+    - [Lexical Semantics](#lexical-semantics)
+    - [Levenshtein Distance](#levenshtein-distance)
+    - [Word Sense Disambiguation (WSD)](#word-sense-disambiguation-wsd)
+    - [Similarity Measures](#similarity-measures)
+  - [Chapter 7 Sentiment Analysis](#chapter-7-sentiment-analysis)
+    - [Lexical vs Machine Learning Approaches](#lexical-vs-machine-learning-approaches)
+    - [Sentiment Analysis Techniques](#sentiment-analysis-techniques)
+    - [Sentiment Analysis Limitation/Challenges](#sentiment-analysis-limitationchallenges)
+  - [Chapter 8 Topic Modeling](#chapter-8-topic-modeling)
+    - [Topic Modeling Techniques](#topic-modeling-techniques)
+    - [Topic Distribution](#topic-distribution)
+  - [Chapter 9 Text Mining \& Named Entity Recognition (NER)](#chapter-9-text-mining--named-entity-recognition-ner)
+    - [Text Mining](#text-mining)
+    - [Named Entity Recognition (NER)](#named-entity-recognition-ner)
+
 ## Chapter 1: Introduction to NLP
 
 ### NLP Components
@@ -60,7 +89,7 @@
   - Convert characters to a standard Unicode representation
   - Example: "é" → "e"
 
-### Stop Word Removal ⭐
+### Stop Word Removal
 
 - Stopword are commonly used words in a language
 - **Why remove?** Has low information, causing ambiguity, server load problem, help to deliver results faster, reduce dimensionality, and improve model performance
@@ -179,3 +208,101 @@
 - Final answer is **3** (bottom-right cell), which means it takes 3 edits to change "kitten" into "sitting" (substitute 'k' with 's', substitute 'e' with 'i', and insert 'g' at the end).
 
 ### Word Sense Disambiguation (WSD)
+
+- Process of identifying the specific meaning of a word (sense) in a given context, especially when the word has multiple meanings (polysemy)
+- NLP model use surrounding words as context to resolve ambiguity
+- E.g.
+  - "I went to the bank to deposit money.", context of "deposit money" indicates that "bank" refers to a financial institution
+  - "I sat on the river bank and watched the sunset.", context of "river" indicates that "bank" refers to the side of a river
+- Methods:
+  - **Knowledge-based methods**: Use dictionaries, thesauri, or semantic networks to determine the correct sense of a word based on its context, e.g. Lesk algorithm
+  - **Supervised machine learning methods**: Train a model on a labeled dataset where the correct sense of words is annotated, and use features from the context to predict the sense of a word in new sentences
+
+### Similarity Measures
+
+- **Cosine Similarity**, embed the documents into vectors using algorithms such as TF-IDF, Word2Vec, or BERT, and then calculate the cosine of the angle between the vectors to determine similarity
+- **Jaccard Similarity**, measure the similarity between two sets by dividing the size of their intersection by the size of their union
+
+## Chapter 7 Sentiment Analysis
+
+### Lexical vs Machine Learning Approaches
+
+| Lexical Approach                                                                                                                          | Machine Learning Approach                                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Rule-based, uses a predefined dictionary with sentiment scores for words                                                                  | Data-driven, uses labeled datasets to train models                                     |
+| Word order matters, linguistic modifiers can control intensity and polarity of sentiment (e.g., "not good" vs "good")                     | Varies based on the model, transformers can capture context and word order             |
+| Struggles with sarcasm, irony, double negation, out of vocabulary words, and context-dependent sentiment (e.g., "I love waiting in line") | Handles context better, especially with advanced models like BERT and GPT              |
+| Explainable, as the sentiment score can be traced back to specific words in the dictionary                                                | Not always explainable, as the model's decision-making process can be opaque/black box |
+| Suitable for social media text, short reviews                                                                                             | Suitable for longer reviews, articles, and complex text                                |
+
+### Sentiment Analysis Techniques
+
+- **VADER**
+  - Lexicon and rule-based sentiment analysis tool specifically designed for social media text (short, informal, and emotive)
+- **Transformers & BERT-based models**
+  - Pre-trained language models that can be fine-tuned for sentiment analysis tasks, capturing context and nuances in text
+
+### Sentiment Analysis Limitation/Challenges
+
+- **Context-Dependent Words and Sarcasm**: Words can have different sentiment based on context, and sarcasm can invert the intended sentiment. E.g. "The singer was so sick!!!" means the singer was amazing, but the word "sick" is usually negative.
+- **Polyglot Mixing, Slang, Dialects**: Social media text often contains a mix of languages, slang, and dialects, making it challenging for models to accurately interpret sentiment. E.g. "Bruh, dis is hella lit!"
+- **Subjectivity and Data Labeling Noise**: Emotional expressions can be subjective, and different annotators may label the same text differently, leading to noisy training data. A strict and consistent labeling guideline is necessary to reduce subjectivity of the data labeling process.
+
+## Chapter 8 Topic Modeling
+
+- Statistical Model used to discover abstract topics that occur in a collection of documents
+- Concern about the word frequency, word relationship, and word co-occurrence in the documents
+
+### Topic Modeling Techniques
+
+- Bag-of-Words (BoW) Model
+  - Represents documents as a collection of words, ignoring grammar and word order
+  - Each document is represented as a vector of word counts or frequencies
+  - Cosine similarity can be used to measure the similarity between documents based on their word vectors
+- Latent Features
+  - Using the result of BoW, we can use dimensionality reduction techniques such as Latent Semantic Analysis (LSA) to identify clusters in the latent space, which can represent topics in the documents
+  - E.g., words like "height", "weight", and "BMI" may cluster together in the latent space, indicating a topic related to health and fitness
+
+### Topic Distribution
+
+- Probabilistic topic modeling techniques, documents may contain multiple topics, and each topic may be represented by a distribution of words
+- **Latent Dirichlet Allocation (LDA)**
+  - The algorithm ***assumes*** all documents are generated by:
+    - A defined number of topics and their respective distributions (like "politics 60%", "economics 30%", "sports 10%")
+    - A defined number of words and their respective distributions for each topic (like "politics: government, election, policy", "economics: market, trade, inflation", "sports: football, basketball, tennis")
+    - Randomly selecting a topic for each word in the document based on the topic distribution, and then randomly selecting a word from the selected topic's word distribution, until all words in the document are generated
+  - It attempts to reverse this process, going through iterations to improve its guess of the topic distribution for each document and the word distribution for each topic, unsupervisedly
+  - In each iteration, for each document, for each word
+    - check how popular is the topic in the document (document-topic balance) and how popular is the word belongs to the topic across all documents (topic-word balance), this is called Gibbs Sampling
+    - The probability of the word belonging to a topic is the product of the two balances. After all topics are considered, then the topic of the word is updated by the weighted random selection of the topic based on the probability of the word belonging to each topic
+  - This will slowly converge to a stable state
+
+## Chapter 9 Text Mining & Named Entity Recognition (NER)
+
+### Text Mining
+
+- Text Mining is more challenging compared to traditional data mining, as the data is unstructured and requires more preprocessing and feature extraction to convert it into a structured format suitable for analysis
+
+### Named Entity Recognition (NER)
+
+- Identifying and classifying named entities in text into predefined categories such as person names, organizations, locations, dates, and more
+- Applications
+  - **Information Extraction**: Extracting relevant entities from unstructured text for further analysis
+  - **Question Answering Systems**: Identifying entities in questions to provide accurate answers
+  - **Content Classification**: Categorizing documents based on the entities they contain
+  - **Sentiment Analysis**: Understanding the sentiment associated with specific entities in text
+- Approaches
+
+    | Knowledge Engineering Approach                                                                     | Learning Approach                                                                                             |
+    | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+    | Rule-based, uses handcrafted rules and patterns to identify entities                               | Statistical and machine learning-based, data-driven, uses labeled datasets to train models                    |
+    | Developed by linguists and domain experts, requires extensive knowledge of the language and domain | No need for extensive knowledge of the language or domain                                                     |
+    | Requires small amount of training data, as the rules are manually created                          | Requires large amounts of quality labeled training data                                                       |
+    | Very time-consuming and labor-intensive to create and maintain rules                               | Depends on the quality and quantity of training data, and may require retraining for new domains or languages |
+    | Hard to accomodate new entities or adapt to new domains, as rules may not generalize well          | Some changes may require re-annotating the training data and retraining the model                             |
+
+- Steps
+  1. Preprocessing: Tokenization, POS tagging, and other preprocessing steps to prepare the text for NER
+  2. Entity Extraction: Identify potential named entities in the text using rules, patterns, or machine learning models
+  3. Coreference Resolution: Resolve references to the same entity in the text (e.g., "Barack Obama" and "he" may refer to the same person)
+  4. Output Generation: Classify the identified entities into predefined categories and generate structured output (e.g. export to database) for further analysis or applications

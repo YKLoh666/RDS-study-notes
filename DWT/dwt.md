@@ -2,13 +2,13 @@
 
 ## Why OLTP is not best solution for business intelligence reporting
 
-| Aspect                | OLTP System                                                             | Data Warehouse                                                 |
-| --------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------- |
-| **Workload**          | Supports only predefined operations                                     | Supports ad-hoc queries and analysis                           |
-| **Data Modification** | Updated by end users manually by issuing statements                     | Automatically updated on a regular basis by ETL processes      |
-| **Schema Design**     | Uses fully denormalized schema to ensure data integrity and consistency | Uses partially denormalized schema to optimize performance     |
-| **Data Scanning**     | Access only a handful of records at a time                              | Encompasses thousands or millions of records in a single query |
-| **Historical Data**   | Store data of only weeks or months                                      | Store data of years or decades                                 |
+| Aspect                | OLTP System                                                           | Data Warehouse                                                 |
+| --------------------- | --------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Workload**          | Supports only predefined operations                                   | Supports ad-hoc queries and analysis                           |
+| **Data Modification** | Updated by end users manually by issuing statements                   | Automatically updated on a regular basis by ETL processes      |
+| **Schema Design**     | Uses fully normalized schema to ensure data integrity and consistency | Uses partially denormalized schema to optimize performance     |
+| **Data Scanning**     | Access only a handful of records at a time                            | Encompasses thousands or millions of records in a single query |
+| **Historical Data**   | Store data of only weeks or months                                    | Store data of years or decades                                 |
 
 ## Bottom-Up vs Top-Down Approach
 

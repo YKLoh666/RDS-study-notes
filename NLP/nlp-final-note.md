@@ -15,6 +15,7 @@
     - [Hidden Markov Model](#hidden-markov-model)
   - [Chapter 5: Semantic Analysis](#chapter-5-semantic-analysis)
     - [Lexical Semantics](#lexical-semantics)
+    - [Semantic Roles Labeling](#semantic-roles-labeling)
     - [Levenshtein Distance](#levenshtein-distance)
     - [Word Sense Disambiguation (WSD)](#word-sense-disambiguation-wsd)
     - [Similarity Measures](#similarity-measures)
@@ -179,6 +180,22 @@
 - **Synonymy**: Words that have the same or similar meanings (e.g., "big" and "large")
 - **Antonymy**: Words that have opposite meanings (e.g., "hot" and "cold")
 - **Hyponymy**: A word that is more specific than another word (e.g., "rose" is a hyponym of "flower"), like subclass
+
+### Semantic Roles Labeling
+
+| Role        | Description                                                | Example                        |
+| ----------- | ---------------------------------------------------------- | ------------------------------ |
+| Agent       | The entity that performs the action                        | The investor                   |
+| Predicate   | The action or event being described                        | deposited                      |
+| Theme       | The entity that is affected by the action                  | the funds                      |
+| Goal        | The entity that is the target or destination of the action | into the high-interest account |
+| Source      | The entity from which the action originates                | from the bank                  |
+| Instrument  | The entity that is used to perform the action              | with a pen                     |
+| Patient     | The entity that undergoes a change of state or condition   | The vase (was broken)          |
+| Location    | The place where the action occurs                          | at the office                  |
+| Stimulus    | The entity that triggers the action                        | The takeoff                    |
+| Experiencer | The entity that experiences the action or event            | The passenger                  |
+| Beneficiary | The entity that benefits from the action                   | for the charity                |
 
 ### Levenshtein Distance
 

@@ -14,10 +14,12 @@
     - [Part-of-Speech (POS) Tagging](#part-of-speech-pos-tagging)
     - [Hidden Markov Model](#hidden-markov-model)
   - [Chapter 5: Semantic Analysis](#chapter-5-semantic-analysis)
+    - [Types of Semantics](#types-of-semantics)
     - [Lexical Semantics](#lexical-semantics)
     - [Semantic Roles Labeling](#semantic-roles-labeling)
     - [Levenshtein Distance](#levenshtein-distance)
     - [Word Sense Disambiguation (WSD)](#word-sense-disambiguation-wsd)
+    - [Semantic Models](#semantic-models)
     - [Similarity Measures](#similarity-measures)
   - [Chapter 7 Sentiment Analysis](#chapter-7-sentiment-analysis)
     - [Lexical vs Machine Learning Approaches](#lexical-vs-machine-learning-approaches)
@@ -173,6 +175,12 @@ Initial probability is 1, since we know the first word "computers" can only be a
 
 ## Chapter 5: Semantic Analysis
 
+### Types of Semantics
+
+| Lexical Semantics                                     | Compositional Semantics                                                                                                            |
+| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Study of the meaning of words and their relationships | Study of how the meaning of individual words combine to form the meaning of larger linguistic units, such as phrases and sentences |
+
 ### Lexical Semantics
 
 - **Homonymy**: Words that pronounced and possibly spelled the same but have different meanings (e.g., "bat" as an animal and "bat" as a sports equipment)
@@ -187,6 +195,7 @@ Initial probability is 1, since we know the first word "computers" can only be a
 - **Synonymy**: Words that have the same or similar meanings (e.g., "big" and "large")
 - **Antonymy**: Words that have opposite meanings (e.g., "hot" and "cold")
 - **Hyponymy**: A word that is more specific than another word (e.g., "rose" is a hyponym of "flower"), like subclass
+- **Hypernymy**: A word that is more general than another word (e.g., "flower" is a hypernym of "rose"), like superclass
 
 ### Semantic Roles Labeling
 
@@ -219,15 +228,15 @@ Initial probability is 1, since we know the first word "computers" can only be a
   4. The final answer is the value in the bottom-right cell of the matrix, which represents the Levenshtein Distance between the two strings.
 - Example: Calculate the Levenshtein Distance between "kitten" and "sitting"
 
-|                | $\epsilon$ | s   | i   | t          | t   | i          | n   | g   |
-| -------------- | ---------- | --- | --- | ---------- | --- | ---------- | --- | --- |
-| **$\epsilon$** | 0          | 1   | 2   | 3          | 4   | 5          | 6   | 7   |
-| **k**          | 1          | 1   | 2   | 3          | 4   | 5 `(5, 1)` | 6   | 7   |
-| **i**          | 2          | 2   | 1   | 2          | 3   | 4          | 5   | 6   |
-| **t**          | 3          | 3   | 2   | 1          | 2   | 3          | 4   | 5   |
-| **t**          | 4          | 4   | 3   | 2 `(3, 4)` | 1   | 2          | 3   | 4   |
-| **e**          | 5          | 5   | 4   | 3          | 2   | 2          | 3   | 4   |
-| **n**          | 6          | 6   | 5   | 4          | 3   | 3          | 2   | 3   |
+  |                | $\epsilon$ | s   | i   | t          | t   | i          | n   | g   |
+  | -------------- | ---------- | --- | --- | ---------- | --- | ---------- | --- | --- |
+  | **$\epsilon$** | 0          | 1   | 2   | 3          | 4   | 5          | 6   | 7   |
+  | **k**          | 1          | 1   | 2   | 3          | 4   | 5 `(5, 1)` | 6   | 7   |
+  | **i**          | 2          | 2   | 1   | 2          | 3   | 4          | 5   | 6   |
+  | **t**          | 3          | 3   | 2   | 1          | 2   | 3          | 4   | 5   |
+  | **t**          | 4          | 4   | 3   | 2 `(3, 4)` | 1   | 2          | 3   | 4   |
+  | **e**          | 5          | 5   | 4   | 3          | 2   | 2          | 3   | 4   |
+  | **n**          | 6          | 6   | 5   | 4          | 3   | 3          | 2   | 3   |
 
 - For example, at the cell `(3, 4)`, the characters are 't' and 't', which are the same, so we copy the value from the top-left diagonal cell (which is 2).
 - At the cell `(5, 1)`, the characters are 'i' and 'k', which are different, so we take the minimum of the three neighboring cells (top: 5, left: 4, top-left diagonal: 4) and add 1, resulting in 5.
@@ -243,6 +252,20 @@ Initial probability is 1, since we know the first word "computers" can only be a
 - Methods:
   - **Knowledge-based methods**: Use dictionaries, thesauri, or semantic networks to determine the correct sense of a word based on its context, e.g. Lesk algorithm
   - **Supervised machine learning methods**: Train a model on a labeled dataset where the correct sense of words is annotated, and use features from the context to predict the sense of a word in new sentences
+
+### Semantic Models
+
+|                      | Ontology                                                                              | Taxonomy                                                                               |
+| -------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **Field of study**   | Knowledge representation                                                              | Classification                                                                         |
+| **Definition**       | A formal representation of a set of concepts and their relationships within a domain  | A hierarchical classification of concepts based on their relationships                 |
+| **Complexity**       | More complex, can represent multiple types of relationships and constraints           | Simpler, focuses on hierarchical relationships                                         |
+| **Shape of diagram** | Graph with interconnected nodes representing concepts and relationships               | Tree-like structure with parent-child relationships                                    |
+| **Example**          | WordNet, which represents words and their semantic relationships in a graph structure | Animal kingdom classification, where "Mammal" is a parent category for "Dog" and "Cat" |
+
+- **Selectional Restrictions**
+  - Constraints on the types of arguments that a predicate can take, based on the semantic properties of the arguments (e.g., "eat" typically requires an animate subject and an edible object)
+  - Used to tackle syntactic ambiguity, where a sentence can have multiple valid syntactic structures, but only one of them is semantically plausible based on the selectional restrictions of the predicates involved
 
 ### Similarity Measures
 

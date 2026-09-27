@@ -146,22 +146,24 @@
 | $P(V \| Adv)$         | 0.05 |
 | $P(Adv \| V)$         | 0.13 |
 
+Initial probability is 1, since we know the first word "computers" can only be a noun.
+
 - Path (N -> N -> N -> Adv)
-  - Emission: $0.123 * 0.1 * 0.11 * 0.789 = 0.001067517$
-  - Transition: $0.6 * 0.6 * 0.01 = 0.0036$
-  - Total: $0.001067517 * 0.0036 = 3.84306e^{-6}$
+  - Emission: $0.123 \times 0.1 \times 0.11 \times 0.789 = 0.001067517$
+  - Transition: $0.6 \times 0.6 \times 0.01 = 0.0036$
+  - Total: $1 \times 0.001067517 \times 0.0036 = 3.84306e^{-6}$
 - Path (N -> V -> N -> Adv)
-  - Emission: $0.123 * 0.2 * 0.11 * 0.789 = 0.002135034$
-  - Transition: $0.4 * 0.5 * 0.01 = 0.002$
-  - Total: $0.002135034 * 0.002 = 4.27006e^{-6}$
+  - Emission: $0.123 \times 0.2 \times 0.11 \times 0.789 = 0.002135034$
+  - Transition: $0.4 \times 0.5 \times 0.01 = 0.002$
+  - Total: $1 \times 0.002135034 \times 0.002 = 4.27006e^{-6}$
 - Path (N -> N -> V -> Adv)
-  - Emission: $0.123 * 0.1 * 0.15 * 0.789 = 0.001455705$
-  - Transition: $0.6 * 0.4 * 0.13 = 0.0312$
-  - Total: $0.001455705 * 0.0312 = 4.541799e^{-5}$
+  - Emission: $0.123 \times 0.1 \times 0.15 \times 0.789 = 0.001455705$
+  - Transition: $0.6 \times 0.4 \times 0.13 = 0.0312$
+  - Total: $1 \times 0.001455705 \times 0.0312 = 4.541799e^{-5}$
 - Path (N -> V -> V -> Adv)
-  - Emission: $0.123 * 0.2 * 0.15 * 0.789 = 0.00291141$
-  - Transition: $0.4 * 0.05 * 0.13 = 0.0026$
-  - Total: $0.00291141 * 0.0026 = 7.56966e^{-6}$
+  - Emission: $0.123 \times 0.2 \times 0.15 \times 0.789 = 0.00291141$
+  - Transition: $0.4 \times 0.05 \times 0.13 = 0.0026$
+  - Total: $1 \times 0.00291141 \times 0.0026 = 7.56966e^{-6}$
 - Path (N -> N -> V -> Adv) has the highest probability, so the most likely POS tagging is "computers/N process/N programs/V accurately/Adv".
 
 ## Chapter 5: Semantic Analysis
@@ -182,6 +184,8 @@
 - **Hyponymy**: A word that is more specific than another word (e.g., "rose" is a hyponym of "flower"), like subclass
 
 ### Semantic Roles Labeling
+
+- SRL is used to describe how each participant in a sentence is related to the action, which helps to identify what is in an event described by the sentence.
 
 | Role        | Description                                                | Example                        |
 | ----------- | ---------------------------------------------------------- | ------------------------------ |

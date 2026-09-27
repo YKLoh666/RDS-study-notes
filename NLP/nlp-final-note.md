@@ -124,6 +124,11 @@
 
 ### Hidden Markov Model
 
+- Assumption:
+  - The current state depends only on the immediate previous state (Markov property)
+  - The probability of the output observation depends only on the state that produced it (Output independence property)
+  - The transition probability and emission probability are remain constant over time (Stationary property)
+
 "computers process programs accurately"
 
 | (part of) lexicon      |       |

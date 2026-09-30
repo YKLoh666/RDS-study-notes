@@ -26,8 +26,14 @@
     - [Functional Dependencies](#functional-dependencies)
     - [Normal Forms](#normal-forms)
   - [Chapter 6: Indexing](#chapter-6-indexing)
+    - [Rules of Using Indexes](#rules-of-using-indexes)
   - [Chapter 7: Physical Database Design](#chapter-7-physical-database-design)
+    - [B+ Tree](#b-tree)
+    - [Hashing](#hashing)
   - [Chapter 8: Transaction Processing](#chapter-8-transaction-processing)
+    - [Authorization SQL](#authorization-sql)
+    - [Concurrent Controls](#concurrent-controls)
+  - [Chapter 9: Distributed Databases](#chapter-9-distributed-databases)
 
 ## Chapter 1: Information Models
 
@@ -424,6 +430,7 @@ Example 1NF table of order information:
 
 ### Normal Forms
 
+- When answering should write the relational schemas, and write the original one before proceed to 1NF (which break the table into 2 tables).
 - **First Normal Form (1NF)**: A relation is in 1NF if it contains only atomic values, and has no repeating groups.
 
 > The non-repeating part of the table is the OrderID, OrderDate, CustomerID, CustomerName, and CustomerAddress.
@@ -458,12 +465,93 @@ Example 1NF table of order information:
 
 ## Chapter 6: Indexing
 
-- Application
+### Rules of Using Indexes
+
+- Use on larger tables
+- Index primary key
+- Index search fields (`WHERE` clause)
+- Index `ORDER BY` and `GROUP BY` fields
+- When there are more than 100 distinct values, but not when there are only less than 30 distinct values (e.g., gender, boolean fields)
+- Avoid indexing fields with long value (compress first)
+- If key indexed is used for determining the location of record, use surrogate (like sequence number) for even spread in storage
+- DBMS may have limit on number of indexes per table
+- Aware of null values in indexed fields, as some DBMS may not index null values
 
 ## Chapter 7: Physical Database Design
 
-- B+ Tree, Hashing
+> [!IMPORTANT]
+>
+> Must write all steps to build the data structure manually, and explain the steps in detail.
+
+### B+ Tree
+
+Steps to build a B+ Tree manually:
+
+1. Create a root node and insert the first key.
+2. Insert subsequent keys into the tree, following the B+ Tree properties:
+   - All leaves are at the same level.
+   - Each node can have a maximum of `m` children (where `m` is the order of the tree).
+   - Each internal node (except the root) must have at least `ceil(m/2)` children.
+   - Keys in each node are sorted in ascending order.
+3. If a node exceeds the maximum number of keys, split the node into two nodes (right node has the middle key) and promote the right node's first key to the parent node. If the parent node also exceeds the maximum number of keys, repeat the splitting process up to the root. Create a new root if necessary.
+4. Repeat steps 2-3 until all keys are inserted and the tree is balanced.
+
+### Hashing
+
+Steps to build a extendable hash structure manually:
+
+1. A define number of bucket size is chosen, and a hash function (like modulo operation) is defined to map keys to buckets.
+2. Starts with prefix length of 0, which means all keys will be mapped to a single bucket.
+3. If the bucket overflows, the prefix length is increased by 1, and the keys in affected buckets are redistributed to new buckets based on the new prefix length.
+4. Repeat step 3 until all keys are inserted and the hash structure is balanced.
 
 ## Chapter 8: Transaction Processing
 
-- Concurrency Control
+### Authorization SQL
+
+```sql
+GRANT {PrivilegeList | ALL PRIVILEGES}
+ON ObjectName
+TO {AuthorizationIdList | PUBLIC}
+[WITH GRANT OPTION]
+```
+
+- PrivilegeList:
+  - `SELECT`
+    - Including able to create views
+  - `DELETE`
+  - `INSERT[(columnName[, ...])]`
+  - `UPDATE[(columnName[, ...])]`
+  - `REFERENCES[(columnName[, ...])]`
+  - `USAGE`
+- WITH GRANT OPTION: Allow the grantee to grant the privileges to other users
+
+```sql
+REVOKE [GRANT OPTION FOR] {PrivilegeList | ALL PRIVILEGES}
+ON ObjectName
+FROM {AuthorizationIdList | PUBLIC} [RESTRICT | CASCADE]
+```
+
+### Concurrent Controls
+
+- **Locking Mechanisms**
+  - **Shared (read) Lock**: A hold shared lock on a data item when reading. B can hold the shared lock on the same data item, but cannot request an exclusive lock until all shared locks are released.
+  - **Exclusive (write) Lock**: A hold exclusive lock on a data item when writing. No other transaction can hold any lock on the same data item until the exclusive lock is released.
+- **Versioning**
+  - Phase 1: Read values from database and store them in local memory. Update values in local memory.
+  - Phase 2: Validation
+    - If readonly, check data read are still current values
+    - If read-write, check transaction leaves database in a consistent state
+    - If not, abort transaction and rollback to initial state.
+  - Phase 3: Write values to database.
+- **Recovery Facility**
+  - **Backup Mechanism**, make periodic backup copies of the database
+  - **Logging Facility**, keep track of state of the database on changes
+  - **Checkpoint Facility**, point of synchronization between the database and log files, to reduce recovery time
+  - **Recovery Manager**, restore DB to previous consistent state after failure, using backup copies and log files
+    - Disk Mirroring (switch between identical disks)
+    - Restore/Rerun transactions against backup copies
+    - Backward Recovery (undo changes made by uncommitted transactions)
+    - Forward Recovery (redo good changes to earlier backup copies)
+
+## Chapter 9: Distributed Databases

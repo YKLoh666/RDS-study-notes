@@ -32,6 +32,7 @@
     - [Hashing](#hashing)
   - [Chapter 8: Transaction Processing](#chapter-8-transaction-processing)
     - [Authorization SQL](#authorization-sql)
+    - [Concurrent Problems](#concurrent-problems)
     - [Concurrent Controls](#concurrent-controls)
   - [Chapter 9: Distributed Databases](#chapter-9-distributed-databases)
 
@@ -531,6 +532,39 @@ REVOKE [GRANT OPTION FOR] {PrivilegeList | ALL PRIVILEGES}
 ON ObjectName
 FROM {AuthorizationIdList | PUBLIC} [RESTRICT | CASCADE]
 ```
+
+### Concurrent Problems
+
+- **Lost Update Problem**: Two transactions read the same data and update it, but the second transaction overwrites the first transaction's update.
+
+  | Time | T1                | T2                | A   | B   |
+  | ---- | ----------------- | ----------------- | --- | --- |
+  | t1   | begin_transaction |                   | 100 | 50  |
+  | t2   | read(A)           | begin_transaction | 100 | 50  |
+  | t3   | A = A + 10        | read(A)           | 100 | 50  |
+  | t4   | write(A)          | A = A * 2         | 110 | 50  |
+  | t5   | commit            | write(A)          | 200 | 50  |
+  | t6   |                   | commit            | 200 | 50  |
+
+  - Expected Result: A = 220, B = 50
+  - Actual Result: A = 200, B = 50
+  - Solution: T2 read(A) should be happen after t4
+- **Uncommitted Dependency (Dirty Read Problem)**: A transaction reads data that has been modified by another transaction but not yet committed. If the first transaction is rolled back, the second transaction will have read invalid data.
+  
+  | Time | T1                | T2                | A   | B   |
+  | ---- | ----------------- | ----------------- | --- | --- |
+  | t1   | begin_transaction |                   | 100 | 50  |
+  | t2   | read(A)           |                   | 100 | 50  |
+  | t3   | A = A + 10        |                   | 100 | 50  |
+  | t4   | write(A)          | begin_transaction | 110 | 50  |
+  | t5   | rollback          | read(A)           | 110 | 50  |
+  | t6   |                   | A = A * 2         | 100 | 50  |
+  | t7   |                   | write(A)          | 220 | 50  |
+  | t8   |                   | commit            | 220 | 50  |
+
+  - Expected Result: A = 200, B = 50
+  - Actual Result: A = 220, B = 50
+  - Solution: T2 read(A) should be happen after t5
 
 ### Concurrent Controls
 

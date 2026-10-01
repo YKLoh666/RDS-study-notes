@@ -555,3 +555,7 @@ FROM {AuthorizationIdList | PUBLIC} [RESTRICT | CASCADE]
     - Forward Recovery (redo good changes to earlier backup copies)
 
 ## Chapter 9: Distributed Databases
+
+- Distribution Plan is strategic decision to determine how data is distributed across multiple sites in a distributed database system.
+- Choose **partitioning** if the data are served and managed by different departments or locations
+- Choose **replication** if the data can be used at any sites and the data is not frequently updated

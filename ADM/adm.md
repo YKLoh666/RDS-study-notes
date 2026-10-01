@@ -518,7 +518,7 @@ TO {AuthorizationIdList | PUBLIC}
 ```
 
 - PrivilegeList:
-  - `SELECT`
+  - `SELECT[(columnName[, ...])]`
     - Including able to create views
   - `DELETE`
   - `INSERT[(columnName[, ...])]`

@@ -45,6 +45,10 @@
     - [3.16 Ethereum Blockchain Synchronization](#316-ethereum-blockchain-synchronization)
     - [3.17 Limitations of PoW‑Based Ethereum](#317-limitations-of-powbased-ethereum)
     - [3.18 Ethereum 2.0 (Eth2) Upgrade](#318-ethereum-20-eth2-upgrade)
+  - [Chapter 4: Smart Contracts](#chapter-4-smart-contracts)
+    - [What is a Smart Contract?](#what-is-a-smart-contract)
+    - [Deployment of Smart Contracts](#deployment-of-smart-contracts)
+    - [Application Binary Interface (ABI)](#application-binary-interface-abi)
 
 ---
 
@@ -614,3 +618,36 @@ Leaf                 |   Extension      Leaf
 - Transition to **Proof of Stake** – reduces energy consumption.  
 - Introduces **shard chains** – improves scalability.  
 - Lower entry barrier for validators.
+
+## Chapter 4: Smart Contracts
+
+### What is a Smart Contract?
+
+- Business logic layer for validation and verification of transactions.
+- Specify rules for operation.
+- Implement policy for transfer of assets.
+- Software-based intermediator for decentralized applications (dApps).
+- Add programmability and intelligence to blockchain networks.
+- Implement self-enforcing business logic without third-party intervention, non-repudiation, and trustless execution.
+
+### Deployment of Smart Contracts
+
+1. Solidity code compiled into bytecode using solidity compiler.
+2. Sign the deployment transaction containing the bytecode.
+3. Send the signed transaction to the Ethereum network.
+4. The transaction is mined and included in a block.
+5. The contract is assigned a unique address on the Ethereum blockchain (contract address).
+6. The contract can be interacted with by sending transactions to its address, invoking its functions, and reading its state.
+
+### Application Binary Interface (ABI)
+
+- A JSON representation of the contract's functions and events.
+- Defines how to call the contract's functions and how to encode/decode data for interaction.
+- Generated automatically by the Solidity compiler during contract compilation.
+- Steps dApps interact with the contract:
+  1. **Transaction Initiation** by dApp, transaction includes target contract address and encoded data corresponding to the function being called.
+  2. **Encoding Data**, function name and arguments are encoded according to the ABI specification.
+  3. **EVM Decoding** the encoded data, first 4 bytes are the function selector (hash of the function signature)
+  4. **Mapping to ABI**, rest of the arguments are decoded based on the ABI definition.
+  5. **Function Execution**, EVM executes the function with decoded arguments. Any output is encoded according to the ABI and returned.
+- When a readonly function is called, there is no transaction created, the EVM in local full node will execute the function and return the result without changing the blockchain state.

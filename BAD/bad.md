@@ -49,6 +49,14 @@
     - [What is a Smart Contract?](#what-is-a-smart-contract)
     - [Deployment of Smart Contracts](#deployment-of-smart-contracts)
     - [Application Binary Interface (ABI)](#application-binary-interface-abi)
+  - [Chapter 7: Advanced Topics in Blockchain](#chapter-7-advanced-topics-in-blockchain)
+    - [Scalability](#scalability)
+    - [Layer 1 Scaling](#layer-1-scaling)
+    - [Layer 2 Scaling](#layer-2-scaling)
+    - [Privacy](#privacy)
+    - [Interoperability](#interoperability)
+    - [Asset Tokenization](#asset-tokenization)
+    - [Forking](#forking)
 
 ---
 
@@ -651,3 +659,82 @@ Leaf                 |   Extension      Leaf
   4. **Mapping to ABI**, rest of the arguments are decoded based on the ABI definition.
   5. **Function Execution**, EVM executes the function with decoded arguments. Any output is encoded according to the ABI and returned.
 - When a readonly function is called, there is no transaction created, the EVM in local full node will execute the function and return the result without changing the blockchain state.
+
+## Chapter 7: Advanced Topics in Blockchain
+
+### Scalability
+
+- Bitcoin up to 7 transactions per second (TPS). Ethereum up to 20 TPS.
+- Trilemma of blockchain scalability: Decentralization, Security, Scalability – it is impossible to achieve all three simultaneously.
+
+### Layer 1 Scaling
+
+- Scaling solutions that directly change the blockchain protocol itself to increase throughput and reduce latency.
+- **SegWit**
+  - Used in Bitcoin to increase block size limit by removing signature data from transactions.
+  - Reduces transaction size, allowing more transactions per block.
+- **Sharding**
+  - Divides the blockchain into smaller partitions called shards, each processing its own transactions and smart contracts.
+  - Reduces the amount of data each node needs to process, increasing overall throughput.
+- **Sidechains**
+  - Separate blockchains that run in parallel to the main chain, allowing for offloading of transactions and smart contracts.
+  - Can be used for specific applications or experiments without affecting the main chain.
+
+### Layer 2 Scaling
+
+- Handling transactions off the main blockchain
+- Rely on security of the main chain
+- Transactions processed off-chain and rolled up into a single transaction on the main chain
+- **State Channels**
+  - Allow participants to transact off-chain while only settling the final state on-chain.
+  - Reduces the number of on-chain transactions, improving speed and reducing fees.
+- **Rollups**
+  
+  |                                      | Optimistic Rollups                                                                      | ZK-Rollups                                                                                                      |
+  | ------------------------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+  | **Transaction Summaries Validation** | Use fraud proofs to ensure correctness, assume transaction valid until being challenged | Use validity proofs (cryptographic proof) to ensure correctness, the transaction is valid if the proof is valid |
+  | **Transaction Privacy**              | No privacy, all data is public                                                          | Can provide privacy, as proofs can be generated without revealing data                                          |
+  | Withdrawal Time                      | More than 7 days, due to challenge period                                               | Near-instant, available immediately after proof verification                                                    |
+
+### Privacy
+
+- Transaction privacy is a major concern in public blockchains, as all transaction contents are visible to everyone.
+- **Coin Mixing**
+  - Anonymize the movement of transactions by mixing multiple transactions together, making it difficult to trace connections between senders and receivers.
+- **Ring Signatures**
+  - A cryptographic technique that allows a user to sign a message on behalf of a group, making it difficult to determine which member of the group actually signed the message.
+- **Zero-Knowledge Proofs (ZKPs)**
+  - A cryptographic method that allows one party to prove to another that a statement is true without revealing any information beyond the validity of the statement itself.
+
+### Interoperability
+
+- Ensure smoother information sharing, easier execution of smart contracts, more user-friendly experience
+- **Cosmos**
+  - Allow developers to build blockchains and break barriers between different blockchains, enabling them to communicate and exchange data.
+  - End goal is to create an "Internet of Blockchains" where different blockchains can interoperate seamlessly.
+- **Polkadot**
+  - Enable cross-blockchain transfer of any type of data or asset, not just tokens.
+
+### Asset Tokenization
+
+- **ERC-20 (Fungible Tokens)**
+  - Has the same value and identical to another with same type
+  - Divisible to smaller units
+  - Interchangeable with other tokens of the same value
+- **ERC-721 (Non-Fungible Tokens)**
+  - Unique and cannot be exchanged on a one-to-one basis with other tokens
+  - Indivisible and cannot be broken down into smaller units
+  - Each token has a unique identifier and metadata that distinguishes it from other tokens
+- **Utility Tokens**
+  - Have use outside of financial speculation, such as access to a product or service, or voting rights in a decentralized organization.
+- **Security Tokens**
+  - Represent ownership in a real-world asset, such as equity in a company or a share of a revenue stream, and are subject to securities regulations.
+
+### Forking
+
+- **Soft Fork**
+  - A backward-compatible upgrade to the blockchain protocol that introduces new rules or features without invalidating existing blocks or transactions.
+  - Nodes that do not upgrade can still participate in the network, but may not be able to take advantage of the new features.
+- **Hard Fork**
+  - A non-backward-compatible upgrade to the blockchain protocol that introduces new rules or features that invalidate existing blocks or transactions.
+  - Nodes that do not upgrade will be unable to participate in the network and will be left on a separate chain.

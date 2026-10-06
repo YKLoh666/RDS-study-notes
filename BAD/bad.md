@@ -49,6 +49,7 @@
     - [What is a Smart Contract?](#what-is-a-smart-contract)
     - [Deployment of Smart Contracts](#deployment-of-smart-contracts)
     - [Application Binary Interface (ABI)](#application-binary-interface-abi)
+    - [Event Emitting](#event-emitting)
   - [Chapter 7: Advanced Topics in Blockchain](#chapter-7-advanced-topics-in-blockchain)
     - [Scalability](#scalability)
     - [Layer 1 Scaling](#layer-1-scaling)
@@ -659,6 +660,14 @@ Leaf                 |   Extension      Leaf
   4. **Mapping to ABI**, rest of the arguments are decoded based on the ABI definition.
   5. **Function Execution**, EVM executes the function with decoded arguments. Any output is encoded according to the ABI and returned.
 - When a readonly function is called, there is no transaction created, the EVM in local full node will execute the function and return the result without changing the blockchain state.
+
+### Event Emitting
+
+- Smart contracts can emit events to log important information during execution.
+- **Benefits**
+  - Efficiently track contract activity without storing all data on-chain.
+  - Enable dApps to listen for specific events and react accordingly.
+  - Provide a historical record of contract interactions for auditing and analysis.
 
 ## Chapter 7: Advanced Topics in Blockchain
 

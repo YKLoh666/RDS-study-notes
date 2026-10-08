@@ -571,6 +571,18 @@ FROM {AuthorizationIdList | PUBLIC} [RESTRICT | CASCADE]
 - **Locking Mechanisms**
   - **Shared (read) Lock**: A hold shared lock on a data item when reading. B can hold the shared lock on the same data item, but cannot request an exclusive lock until all shared locks are released.
   - **Exclusive (write) Lock**: A hold exclusive lock on a data item when writing. No other transaction can hold any lock on the same data item until the exclusive lock is released.
+
+  | Time | T1                | T2                | A   |
+  | ---- | ----------------- | ----------------- | --- |
+  | t1   | begin_transaction |                   | 100 |
+  | t2   | write_lock(A)     | begin_transaction | 100 |
+  | t3   | A = A + 10        | write_lock(A)     | 100 |
+  | t4   | write(A)          | WAIT              | 110 |
+  | t5   | commit/unlock(A)  | WAIT              | 110 |
+  | t6   |                   | A = A * 2         | 110 |
+  | t7   |                   | write(A)          | 220 |
+  | t8   |                   | commit/unlock(A)  | 220 |
+
 - **Versioning**
   - Phase 1: Read values from database and store them in local memory. Update values in local memory.
   - Phase 2: Validation
@@ -578,6 +590,17 @@ FROM {AuthorizationIdList | PUBLIC} [RESTRICT | CASCADE]
     - If read-write, check transaction leaves database in a consistent state
     - If not, abort transaction and rollback to initial state.
   - Phase 3: Write values to database.
+
+  | Time | T1                | T2                  |
+  | ---- | ----------------- | ------------------- |
+  | t1   | begin_transaction |                     |
+  | t2   | read(A)           | begin_transaction   |
+  | t3   | A = A + 10        | read(A)             |
+  | t4   | write(A)          | A = A * 2           |
+  | t5   |                   | attempt write(A)    |
+  | t6   | commit            | rollback            |
+  | t7   |                   | restart transaction |
+
 - **Recovery Facility**
   - **Backup Mechanism**, make periodic backup copies of the database
   - **Logging Facility**, keep track of state of the database on changes
@@ -591,5 +614,5 @@ FROM {AuthorizationIdList | PUBLIC} [RESTRICT | CASCADE]
 ## Chapter 9: Distributed Databases
 
 - Distribution Plan is strategic decision to determine how data is distributed across multiple sites in a distributed database system.
-- Choose **partitioning** if the data are served and managed by different departments or locations
-- Choose **replication** if the data can be used at any sites and the data is not frequently updated
+- XXX should be **partitioned** because XXX is only served at one particular branch, and each branch manage its own XXX.
+- XXX shpuld be **replicated** because XXX is shared by all branches, and XXX is rarely updated.
